@@ -32,7 +32,7 @@ public class Login extends BaseClass {
 	}
 	
 	@Test(testName = "Success Logout", priority = 7, enabled = true)
-	public void Success_logout() {
+	public void Success_logout() throws InterruptedException {
 		System.out.println("//For validating success logout.");
 		login.click_logout(driver);
 		logger.log(LogStatus.INFO,"User logOut successfully!.");

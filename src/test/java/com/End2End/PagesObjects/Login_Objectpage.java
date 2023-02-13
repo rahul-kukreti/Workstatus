@@ -52,10 +52,8 @@ public class Login_Objectpage extends BaseClass {
 		driver.switchTo().frame("ifmail");
 		commFunc.Explicitywait(driver, confirm_account);
 		commFunc.actionsClick(driver, confirm_account);
-		commFunc.Explicitywait(driver,By.xpath("//p[text()=' Your email address has been confirmed successfully. ']"));
-		//commFunc.actionsClick(driver, loginbtn_mail);
 		Utility.captureScreenShot(driver, "confirmed_login");
-		Thread.sleep(9000);
+		Thread.sleep(12000);
 		driver.navigate().to("https://app.newstaging.workstatus.io/auth/login");
 		
 	}
@@ -73,9 +71,11 @@ public class Login_Objectpage extends BaseClass {
 	
 	//---------------------For logout-----------------------------------------------------
 	
-	public void click_logout(WebDriver driver) {
+	public void click_logout(WebDriver driver) throws InterruptedException {
+		Thread.sleep(4000);
 		commFunc.Explicitywait(driver,logoutbtn);
 		commFunc.Click(driver, logoutbtn);
+		Thread.sleep(4000);
 		commFunc.Explicitywait(driver, logout_confrm);
 		commFunc.Click(driver, logout_confrm);
 		commFunc.Explicitywait(driver, btn_ok);
