@@ -47,5 +47,22 @@ public class ConfigReader {
 	public String getConfirm_passowrd() {
 		return prop.getProperty("cpassword");
 	}
+	
+	public String getdescription() {
+		return prop.getProperty("description");
+	}
+	
+	public String getfname() {
+		return prop.getProperty("fname");
+	}
+	
+	public String getfemail() {
+		return prop.getProperty("femail");
+	}
+	
+	public String getfphone() {
+		return prop.getProperty("fphone");
+	}
 
 }
+

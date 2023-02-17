@@ -1,11 +1,13 @@
 package com.End2End.Test_Regression;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import com.End2End.PagesObjects.Login_Objectpage;
 import com.End2End.PagesObjects.Signup_Objectpage;
+import com.End2End.PagesObjects.Supportfeature_Objectpage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.utility.BrowserFactory;
@@ -27,6 +29,7 @@ public class BaseClass {
 	public static BrowserFactory browserSelect = new BrowserFactory();
 	public static Signup_Objectpage sign = new Signup_Objectpage();
 	public static Login_Objectpage login = new Login_Objectpage();
+	public static Supportfeature_Objectpage sf = new Supportfeature_Objectpage();
 	public static ConfigReader conf = new ConfigReader();
 	public static Utility uti = new Utility();
 	
@@ -35,6 +38,7 @@ public class BaseClass {
 	@BeforeSuite(description = "initializing Driver", alwaysRun= true)
 	public void initializeDriver(String enviroment) throws InterruptedException {
 			driver = browserSelect.openChromeIncongnito();
+		//driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.get("https://app.newstaging.workstatus.io/");
 			

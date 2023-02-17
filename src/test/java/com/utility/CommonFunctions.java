@@ -175,6 +175,7 @@ public class CommonFunctions {
 		WebElement element = driver.findElement(Locator);
 		element.sendKeys(value);
 	}
+	
 
 	// <----------------------Send Data into Locater by using JavaScript
 	// Executer---------------->
@@ -284,11 +285,12 @@ public class CommonFunctions {
 
 	// <--------------------File Uploading------------------->
 	public void fileUpload(WebDriver driver, String fileDir) {
-		By inputFileDirField = By.xpath("//input[contains(@type,'file')]");
+		By inputFileDirField = By.xpath("//ancestor::div[@id='drop-areas']//child::input[@type='file']//following-sibling::button");
 		this.Explicitywait(driver, inputFileDirField);
 		this.sendKeys(driver, inputFileDirField, fileDir);
 	}
-
+	//input[contains(@type,'file')]
+	//button[@id='footer-browse-btn']
 	// <---------------Convert Date Formate--------------------------->
 
 	public String DateFormateConvert(String PrasentDateFormate, String ExpectedDateFormate, String Valu)
