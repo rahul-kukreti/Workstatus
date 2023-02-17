@@ -10,3 +10,5 @@ description = New feature should launched.
 fname = jack
 femail=rhrtt_test@yopmail.com
 fphone = 7418529635
+bug_title = new issue found
+bug_desc= dummy data

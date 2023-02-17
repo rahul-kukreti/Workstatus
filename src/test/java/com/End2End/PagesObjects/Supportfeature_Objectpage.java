@@ -52,7 +52,6 @@ public class Supportfeature_Objectpage extends BaseClass {
 	}
 
 	public void validate_supportFeature_link(WebDriver driver) {
-		// commFunc.Explicitywait(driver,By.xpath("//form[@id='contact-form-section']"));
 		if (driver.findElement(By.id("contact-form-section")).isDisplayed()) {
 			System.out.println("Support feature link opened successfully!");
 		}

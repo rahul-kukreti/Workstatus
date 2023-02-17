@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
+import com.End2End.PagesObjects.BugReport_Objectpage;
 import com.End2End.PagesObjects.Login_Objectpage;
 import com.End2End.PagesObjects.Signup_Objectpage;
 import com.End2End.PagesObjects.Supportfeature_Objectpage;
@@ -32,6 +33,7 @@ public class BaseClass {
 	public static Supportfeature_Objectpage sf = new Supportfeature_Objectpage();
 	public static ConfigReader conf = new ConfigReader();
 	public static Utility uti = new Utility();
+	public static BugReport_Objectpage bg = new BugReport_Objectpage();
 	
 	
 	@Parameters({"enviroment"})

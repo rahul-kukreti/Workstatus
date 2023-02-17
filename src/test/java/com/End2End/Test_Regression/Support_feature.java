@@ -8,7 +8,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class Support_feature extends BaseClass {
 
-	@Test(testName = "Click Signup tab", priority = 8, enabled = true)
+	@Test(testName = "Click support feature tab", priority = 8, enabled = true)
 	public void click_support_feat() {
 		logger = rep.startTest("Support feature scenarios");
 		System.out.println("//For clicking on support feature link..!!");
@@ -20,7 +20,7 @@ public class Support_feature extends BaseClass {
 
 	}
 
-	@Test(testName = "Click Signup tab", priority = 8, enabled = true)
+	@Test(testName = "submit feature page", priority = 9, enabled = true)
 	public void details_supportFeature() {
 		System.out.println("//For filling details in support feature page..!!");
 		sf.details(driver);

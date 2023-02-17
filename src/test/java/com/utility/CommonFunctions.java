@@ -285,7 +285,7 @@ public class CommonFunctions {
 
 	// <--------------------File Uploading------------------->
 	public void fileUpload(WebDriver driver, String fileDir) {
-		By inputFileDirField = By.xpath("//ancestor::div[@id='drop-areas']//child::input[@type='file']//following-sibling::button");
+		By inputFileDirField = By.xpath("//input[@type='file')]");
 		this.Explicitywait(driver, inputFileDirField);
 		this.sendKeys(driver, inputFileDirField, fileDir);
 	}

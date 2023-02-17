@@ -63,6 +63,14 @@ public class ConfigReader {
 	public String getfphone() {
 		return prop.getProperty("fphone");
 	}
+	
+	public String getbug_title() {
+		return prop.getProperty("bug_title");
+	}
+	
+	public String getbug_desc() {
+		return prop.getProperty("bug_desc");
+	}
 
 }
 
