@@ -22,9 +22,14 @@
 			<class name="com.End2End.Test_Regression.Support_feature" />
 		</classes>
 	</test> -->
-	<test name="Bug report" preserve-order="true">
+	<!-- <test name="Bug report" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.BugReport" />
+		</classes>
+	</test> -->
+	<test name="Forgot password" preserve-order="true">
+		<classes>
+			<class name="com.End2End.Test_Regression.Forgotpassword" />
 		</classes>
 	</test>
 </suite>

@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import com.End2End.PagesObjects.BugReport_Objectpage;
+import com.End2End.PagesObjects.Forgotpassword_Objectpage;
 import com.End2End.PagesObjects.Login_Objectpage;
 import com.End2End.PagesObjects.Signup_Objectpage;
 import com.End2End.PagesObjects.Supportfeature_Objectpage;
@@ -26,7 +27,7 @@ public class BaseClass {
 	public static ExtentTest logger;
 	
 	
-	public static CommonFunctions commFunc = new CommonFunctions();;
+	public static CommonFunctions commFunc = new CommonFunctions();
 	public static BrowserFactory browserSelect = new BrowserFactory();
 	public static Signup_Objectpage sign = new Signup_Objectpage();
 	public static Login_Objectpage login = new Login_Objectpage();
@@ -34,6 +35,7 @@ public class BaseClass {
 	public static ConfigReader conf = new ConfigReader();
 	public static Utility uti = new Utility();
 	public static BugReport_Objectpage bg = new BugReport_Objectpage();
+	public static Forgotpassword_Objectpage fp = new Forgotpassword_Objectpage();
 	
 	
 	@Parameters({"enviroment"})

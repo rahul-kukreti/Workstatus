@@ -115,7 +115,8 @@ public class BugReport extends BaseClass {
 		}
 		bg.validate_bugpage(driver);
 		logger.log(LogStatus.INFO, "Validate bug report form successfully!");
+		driver.close();
 
 	}
-
+ 
 }

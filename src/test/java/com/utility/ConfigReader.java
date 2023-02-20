@@ -71,6 +71,9 @@ public class ConfigReader {
 	public String getbug_desc() {
 		return prop.getProperty("bug_desc");
 	}
+	
+	public String getWrong_email() {
+		return prop.getProperty("Wrong_email");
+	}
 
 }
-
