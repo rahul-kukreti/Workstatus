@@ -24,7 +24,7 @@ public class Login extends BaseClass {
 	}
 	
 	@Test(testName = "Success Login", priority = 6, enabled = true)
-	public void Success_login() {
+	public static void Success_login() {
 		System.out.println("//For validating success login.");
 		login.login(driver);
 		login.validate_login(driver);

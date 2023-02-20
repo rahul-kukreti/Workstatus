@@ -42,5 +42,6 @@ public class Forgotpassword extends BaseClass {
 		fp.click_resetbtn(driver);
 		fp.validate_resetpass(driver);
 		logger.log(LogStatus.INFO, "Forgot password validated successfully!");
+		Login.Success_login();
 	}
 }
