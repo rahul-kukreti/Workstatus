@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import com.End2End.PagesObjects.BugReport_Objectpage;
+import com.End2End.PagesObjects.BusinessOwner_Objectpage;
 import com.End2End.PagesObjects.Forgotpassword_Objectpage;
 import com.End2End.PagesObjects.Login_Objectpage;
 import com.End2End.PagesObjects.Signup_Objectpage;
@@ -36,6 +37,7 @@ public class BaseClass {
 	public static Utility uti = new Utility();
 	public static BugReport_Objectpage bg = new BugReport_Objectpage();
 	public static Forgotpassword_Objectpage fp = new Forgotpassword_Objectpage();
+	public static BusinessOwner_Objectpage business = new BusinessOwner_Objectpage();
 	
 	
 	@Parameters({"enviroment"})

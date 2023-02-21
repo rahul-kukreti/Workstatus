@@ -75,5 +75,13 @@ public class ConfigReader {
 	public String getWrong_email() {
 		return prop.getProperty("Wrong_email");
 	}
+	
+	public String org_name_old() {
+		return prop.getProperty("org_name_old");
+	}
 
+	public String org_name_new() {
+		return prop.getProperty("org_name_new");
+	}
 }
+
