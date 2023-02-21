@@ -3,6 +3,7 @@ package com.End2End.Test_Regression;
 import java.time.Duration;
 import java.util.ArrayList;
 
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -18,7 +19,7 @@ public class BugReport extends BaseClass {
 		System.out.println("//For clicking on bug report link..!!");
 		bg.click_BugReportlink(driver);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabs.get(1));
+		driver.switchTo().window(tabs.get(3));
 		bg.validate_reportlink(driver);
 		logger.log(LogStatus.INFO, "Bug report link opened successfully!");
 
@@ -96,26 +97,31 @@ public class BugReport extends BaseClass {
 		bg.captcha_bug(driver);
 		bg.btn_click(driver);
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-		if(wait.until(ExpectedConditions.alertIsPresent())==null) {
+		try {
+		bg.validate_bugpage(driver);
+		}
+		
+		catch(Exception e) {
+			Thread.sleep(4000);
+		if(ExpectedConditions.alertIsPresent()==null) {
 			
-			System.out.println("No alert is present!");
+			System.out.println("No alert is present");
+			
 		}
 		
 		else {
-			
-			String str = driver.switchTo().alert().getText();
-			String cap = "Invalid Captcha";
-			driver.switchTo().alert().accept();
-			if(cap.equalsIgnoreCase(str)) {
-				bg.captcha_bug(driver);
-				bg.btn_click(driver);
-			}
-			
+			//String str = driver.switchTo().alert().getText();
+			//String cap = "Invalid Captcha";
+			//System.out.println("Alert messagae:" + str);
+			bg.captcha_bug(driver);
+			bg.btn_click(driver);
+			bg.validate_bugpage(driver);
 		}
-		bg.validate_bugpage(driver);
+		}
+		
 		logger.log(LogStatus.INFO, "Validate bug report form successfully!");
-		driver.close();
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
 
 	}
  

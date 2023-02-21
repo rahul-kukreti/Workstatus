@@ -116,7 +116,7 @@ public class BugReport_Objectpage extends BaseClass {
 	}
 
 	public void validate_bugpage(WebDriver driver) {
-		commFunc.Explicitywait(driver, form_messgae);
+		//commFunc.Explicitywait(driver, form_messgae);
 		if(driver.findElements(By.xpath("//h1[text()='THANK YOU!']")).size()!=0) {
 			System.out.println("Bug report form submitted successfully!");
 		}

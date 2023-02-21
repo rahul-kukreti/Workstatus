@@ -1,5 +1,7 @@
 package com.End2End.PagesObjects;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import com.End2End.Test_Regression.BaseClass;
@@ -52,6 +54,8 @@ public class Login_Objectpage extends BaseClass {
 		driver.switchTo().frame("ifmail");
 		commFunc.Explicitywait(driver, confirm_account);
 		commFunc.actionsClick(driver, confirm_account);
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
 		Utility.captureScreenShot(driver, "confirmed_login");
 		Thread.sleep(12000);
 		driver.navigate().to("https://app.newstaging.workstatus.io/auth/login");

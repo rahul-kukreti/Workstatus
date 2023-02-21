@@ -8,13 +8,14 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class Support_feature extends BaseClass {
 
+	
 	@Test(testName = "Click support feature tab", priority = 8, enabled = true)
 	public void click_support_feat() {
 		logger = rep.startTest("Support feature scenarios");
 		System.out.println("//For clicking on support feature link..!!");
 		sf.click_supportFeaturelink(driver);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabs.get(1));
+		driver.switchTo().window(tabs.get(2));
 		sf.validate_supportFeature_link(driver);
 		logger.log(LogStatus.INFO, "Support feature opened successfully!");
 
@@ -29,7 +30,8 @@ public class Support_feature extends BaseClass {
 		sf.click_featureBtn(driver);
 		sf.validate_featurepage(driver);
 		logger.log(LogStatus.INFO, "Support feature submitted successfully!");
-		driver.close();
+		//driver.close();
+		driver.get("https://app.newstaging.workstatus.io/auth/login");
 		
 	}
 	

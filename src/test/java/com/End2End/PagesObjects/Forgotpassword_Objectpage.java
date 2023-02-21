@@ -64,12 +64,14 @@ public class Forgotpassword_Objectpage extends BaseClass {
 	public void getWindow(WebDriver driver) throws InterruptedException {
 
 		driver.navigate().to("https://yopmail.com/en/");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@id='login']")).clear();
 		commFunc.sendKeyswithEnter(driver, search_mail, (conf.getemail()));
 		driver.switchTo().frame("ifmail");
 		commFunc.Explicitywait(driver, reset_btn);
 		commFunc.actionsClick(driver, reset_btn);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabs.get(1));
+		driver.switchTo().window(tabs.get(4));
 		commFunc.Explicitywait(driver, By.xpath("//input[@formcontrolname='password']"));
 		commFunc.sendKeyswithEnter(driver, password,(conf.getpassword()));
 		commFunc.sendKeyswithEnter(driver, passwordConfirm,(conf.getConfirm_passowrd()));

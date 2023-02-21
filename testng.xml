@@ -7,7 +7,7 @@
 		<listener class-name="com.Test.resources.ExtentRepoterNG" />
 	</listeners>
 	<parameter name="enviroment" value="stage" />
-	<test name="Signup" preserve-order="true">
+	 <test name="Signup" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.Signup" />
 		</classes>

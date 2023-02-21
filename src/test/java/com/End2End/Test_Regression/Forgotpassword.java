@@ -35,7 +35,7 @@ public class Forgotpassword extends BaseClass {
 		logger.log(LogStatus.INFO, "Valid email for forgot password validated successfully!");
 	}
 
-	@Test(testName = "Click valid email in forgot password ", priority = 18, enabled = true)
+	@Test(testName = "forgot password ", priority = 18, enabled = true)
 	public void forgot_password() throws InterruptedException {
 		System.out.println("//For validating forgot password..!!");
 		fp.getWindow(driver);
