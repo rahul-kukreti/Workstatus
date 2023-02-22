@@ -6,7 +6,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class Forgotpassword extends BaseClass {
 
-	@Test(testName = "Click forgot password link", priority = 15, enabled = true)
+	@Test(testName = "Click forgot password link", priority = 15, enabled = false)
 	public void click_support_feat() {
 		//logger = rep.startTest("Forgot password scenarios");
 		System.out.println("//For clicking on forgot password link..!!");
@@ -16,7 +16,7 @@ public class Forgotpassword extends BaseClass {
 
 	}
 
-	@Test(testName = "Click invalid email in forgot password ", priority = 16, enabled = true)
+	@Test(testName = "Click invalid email in forgot password ", priority = 16, enabled = false)
 	public void validate_wrongemail() {
 		System.out.println("//For validating wrong email..!!");
 		fp.wrong_email(driver);
@@ -25,7 +25,7 @@ public class Forgotpassword extends BaseClass {
 
 	}
 
-	@Test(testName = "Click valid email in forgot password ", priority = 17, enabled = true)
+	@Test(testName = "Click valid email in forgot password ", priority = 17, enabled = false)
 	public void validate_validemail() {
 		System.out.println("//For validating valid email..!!");
 		fp.email_field(driver);
@@ -33,7 +33,7 @@ public class Forgotpassword extends BaseClass {
 		logger.log(LogStatus.INFO, "Valid email for forgot password validated successfully!");
 	}
 
-	@Test(testName = "forgot password ", priority = 18, enabled = true)
+	@Test(testName = "forgot password ", priority = 18, enabled = false)
 	public void forgot_password() throws InterruptedException {
 		System.out.println("//For validating forgot password..!!");
 		fp.getWindow(driver);

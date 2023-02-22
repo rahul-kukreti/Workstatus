@@ -9,7 +9,7 @@ import com.End2End.PagesObjects.BugReport_Objectpage;
 import com.End2End.PagesObjects.BusinessOwner_Objectpage;
 import com.End2End.PagesObjects.Forgotpassword_Objectpage;
 import com.End2End.PagesObjects.Login_Objectpage;
-import com.End2End.PagesObjects.Project_ObjectPage;
+import com.End2End.PagesObjects.Member_ObjectPage;
 import com.End2End.PagesObjects.Signup_Objectpage;
 import com.End2End.PagesObjects.Supportfeature_Objectpage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -39,7 +39,7 @@ public class BaseClass {
 	public static BugReport_Objectpage bg = new BugReport_Objectpage();
 	public static Forgotpassword_Objectpage fp = new Forgotpassword_Objectpage();
 	public static BusinessOwner_Objectpage business = new BusinessOwner_Objectpage();
-	public static Project_ObjectPage project = new Project_ObjectPage();
+	public static Member_ObjectPage member = new Member_ObjectPage();
 	
 	
 	@Parameters({"enviroment"})

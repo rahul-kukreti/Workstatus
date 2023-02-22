@@ -87,8 +87,13 @@ public class ConfigReader {
 	public String get_project() {
 		return prop.getProperty("project_name");
 	}
+	
 	public String get_projectnew() {
 		return prop.getProperty("project_name1");
+	}
+	
+	public String get_newMember() {
+		return prop.getProperty("member_id");
 	}
 }
 

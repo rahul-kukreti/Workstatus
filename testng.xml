@@ -37,9 +37,9 @@
 			<class name="com.End2End.Test_Regression.BusinessOwner" />
 		</classes>
 	</test> -->
-	<test name="Projects" preserve-order="true">
+	<test name="Member" preserve-order="true">
 		<classes>
-			<class name="com.End2End.Test_Regression.Project" />
+			<class name="com.End2End.Test_Regression.Member" />
 		</classes>
 	</test>
 </suite>

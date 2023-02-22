@@ -8,7 +8,7 @@ public class BusinessOwner extends BaseClass {
 
 	@Test(testName = "Click business option", priority = 20, enabled = true)
 	public void click_businessoption() {
-	     logger = rep.startTest("Business option");
+	     logger = rep.startTest("Business option scenarios");
 		System.out.println("//For selecting business option");
 		business.click_businessOption(driver);
 		business.click_continue_btn(driver);
