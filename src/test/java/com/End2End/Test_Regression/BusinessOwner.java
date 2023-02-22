@@ -6,9 +6,9 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class BusinessOwner extends BaseClass {
 
-	@Test(testName = "Click business option", priority = 20, enabled = false)
+	@Test(testName = "Click business option", priority = 20, enabled = true)
 	public void click_businessoption() {
-		logger = rep.startTest("Business option");
+	     logger = rep.startTest("Business option");
 		System.out.println("//For selecting business option");
 		business.click_businessOption(driver);
 		business.click_continue_btn(driver);
@@ -16,7 +16,7 @@ public class BusinessOwner extends BaseClass {
 		logger.log(LogStatus.INFO, "Business checkbox selected successfully.!");
 	}
 
-	@Test(testName = "Click business option", priority = 21, enabled = false)
+	@Test(testName = "Click business option", priority = 21, enabled = true)
 	public void click_ofcOptin() {
 		System.out.println("//For selecting office option");
 		business.click_OfcOption(driver);
@@ -26,7 +26,7 @@ public class BusinessOwner extends BaseClass {
 
 	}
 
-	@Test(testName = "Duplicate Organization details", priority = 22, enabled = false)
+	@Test(testName = "Duplicate Organization details", priority = 22, enabled = true)
 	public void Duplicate_organization_details() throws InterruptedException {
 		System.out.println("//For putting duplicate organization details..");
 		business.Organisation(driver);
@@ -35,7 +35,7 @@ public class BusinessOwner extends BaseClass {
 		logger.log(LogStatus.INFO, "Duplicate Organization details validated successfully.!");
 	}
 
-	@Test(testName = "New Organization details", priority = 23, enabled = false)
+	@Test(testName = "New Organization details", priority = 23, enabled = true)
 	public void new_organization() {
 		System.out.println("//For putting new organization details..");
 		business.newName(driver);
@@ -43,15 +43,26 @@ public class BusinessOwner extends BaseClass {
 		logger.log(LogStatus.INFO, "New Organization details validated successfully.!");
 
 	}
+
 	@Test(testName = "Checkboxes selected", priority = 24, enabled = true)
 	public void checkboxesSelect() {
-		logger = rep.startTest("Business option"); //baad m hata denge
+		System.out.println("//For selecting checkboxes!");
 		business.click_checkboxes(driver);
 		business.validate_checkboxes(driver);
 		logger.log(LogStatus.INFO, "checkboxes validated successfully.!");
 	}
-	
-	
-	//p[text()=' Hello, Jack ']
+
+	@Test(testName = "Project Name", priority = 25, enabled = true)
+	public void project_name() throws InterruptedException {
+		System.out.println("//For entering and validating project name!");
+		business.projectName(driver);
+		business.dialogbox(driver);
+		System.out.println("//dialogue box clicked successfully!");
+		business.click_module(driver,"Projects");
+		business.validate_project(driver);
+		logger.log(LogStatus.INFO, "projects name validated successfully.!");
+	}
+
+	// p[text()=' Hello, Jack ']
 
 }

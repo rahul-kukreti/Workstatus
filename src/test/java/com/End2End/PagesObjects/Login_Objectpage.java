@@ -56,8 +56,8 @@ public class Login_Objectpage extends BaseClass {
 		commFunc.actionsClick(driver, confirm_account);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		Utility.captureScreenShot(driver, "confirmed_login");
 		Thread.sleep(12000);
+		Utility.captureScreenShot(driver, "confirmed_login");
 		driver.navigate().to("https://app.newstaging.workstatus.io/auth/login");
 		
 	}

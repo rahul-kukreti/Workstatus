@@ -7,7 +7,7 @@
 		<listener class-name="com.Test.resources.ExtentRepoterNG" />
 	</listeners>
 	<parameter name="enviroment" value="stage" />
-	  <test name="Signup" preserve-order="true">
+	 <!--  <test name="Signup" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.Signup" />
 		</classes>
@@ -26,15 +26,20 @@
 		<classes>
 			<class name="com.End2End.Test_Regression.BugReport" />
 		</classes>
-	</test> 
+	</test>  -->
 	<test name="Forgot password" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.Forgotpassword" />
 		</classes>
 	</test>
-	<test name="Business owner" preserve-order="true">
+	<!-- <test name="Business owner" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.BusinessOwner" />
+		</classes>
+	</test> -->
+	<test name="Projects" preserve-order="true">
+		<classes>
+			<class name="com.End2End.Test_Regression.Project" />
 		</classes>
 	</test>
 </suite>

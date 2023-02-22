@@ -35,7 +35,7 @@ public class Forgotpassword_Objectpage extends BaseClass {
 
 	public void email_field(WebDriver driver) {
 		driver.findElement(email_field).sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		commFunc.sendKeyswithEnter(driver, email_field, (conf.getemail()));
+		commFunc.sendKeyswithEnter(driver, email_field, (conf.getemail_new()));
 	}
 
 	public void wrong_email(WebDriver driver) {
