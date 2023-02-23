@@ -95,5 +95,17 @@ public class ConfigReader {
 	public String get_newMember() {
 		return prop.getProperty("member_id");
 	}
+	
+	public String get_nmemberName() {
+		return prop.getProperty("member_name");
+	}
+	
+	public String get_week() {
+		return prop.getProperty("weekly");
+	}
+	
+	public String get_hour() {
+		return prop.getProperty("hour");
+	}
 }
 

@@ -27,6 +27,7 @@
 			<class name="com.End2End.Test_Regression.BugReport" />
 		</classes>
 	</test>  -->
+	
 	<test name="Forgot password" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.Forgotpassword" />
