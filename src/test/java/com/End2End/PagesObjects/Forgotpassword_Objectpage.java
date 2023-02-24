@@ -66,7 +66,7 @@ public class Forgotpassword_Objectpage extends BaseClass {
 		driver.navigate().to("https://yopmail.com/en/");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@id='login']")).clear();
-		commFunc.sendKeyswithEnter(driver, search_mail, (conf.getemail()));
+		commFunc.sendKeyswithEnter(driver, search_mail, (conf.getemail_new()));
 		driver.switchTo().frame("ifmail");
 		commFunc.Explicitywait(driver, reset_btn);
 		commFunc.actionsClick(driver, reset_btn);

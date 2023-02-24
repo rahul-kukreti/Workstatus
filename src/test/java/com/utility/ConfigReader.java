@@ -107,5 +107,13 @@ public class ConfigReader {
 	public String get_hour() {
 		return prop.getProperty("hour");
 	}
+	
+	public String getemail_member_old() {
+		return prop.getProperty("old_member");
+	}
+	
+	public String getpass_member_old() {
+		return prop.getProperty("old_password");
+	}
 }
 
