@@ -115,5 +115,9 @@ public class ConfigReader {
 	public String getpass_member_old() {
 		return prop.getProperty("old_password");
 	}
+	
+	public String get_Teamname() {
+		return prop.getProperty("Team_Name");
+	}
 }
 

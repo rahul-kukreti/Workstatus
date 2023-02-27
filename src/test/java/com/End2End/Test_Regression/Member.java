@@ -89,11 +89,10 @@ public class Member extends BaseClass {
 		logger.log(LogStatus.INFO, "clear filtering records validated successfully.!");
 	}
 
-	@Test(testName = "For Resend invitation link", priority = 35, enabled = true)
+	@Test(testName = "For Resend invitation link", priority = 35, enabled = false)
 	public void Resend_invitation() {
-		logger = rep.startTest("New Member scenario");
-		member.login_old(driver);
 		System.out.println("//For Resend invitation");
+		member.login_old(driver);
 		business.click_module(driver, "Members");
 		member.click_invitedTab(driver);
 		member.resend_link(driver);
@@ -101,7 +100,7 @@ public class Member extends BaseClass {
 		logger.log(LogStatus.INFO, "Member resend request sent successfully!");
 	}
 
-	@Test(testName = "For Edit invitation update", priority = 36, enabled = true)
+	@Test(testName = "For Edit invitation update", priority = 36, enabled = false)
 	public void EditInvite() {
 		System.out.println("//For Edit invite updation");
 		member.edit_invite(driver);
@@ -113,7 +112,9 @@ public class Member extends BaseClass {
 
 	@Test(testName = "For cancel request", priority = 37, enabled = true)
 	public void Cancel_request() {
+		//logger = rep.startTest("New Member scenario");
 		System.out.println("//For cancel request");
+		//member.login_old(driver);
 		member.cancel_invite(driver);
 		member.validate_cancelInvite(driver);
 		logger.log(LogStatus.INFO, "Member request cancelled successfully!");

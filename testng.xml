@@ -37,14 +37,14 @@
 		<classes>
 			<class name="com.End2End.Test_Regression.BusinessOwner" />
 		</classes>
-	</test>  
+	</test>
 	<test name="Member" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.Member" />
 		</classes>
-	</test> -->
+	</test>   -->
 	
-	<test name="Member" preserve-order="true">
+	<test name="Teams" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.Teams" />
 		</classes>
