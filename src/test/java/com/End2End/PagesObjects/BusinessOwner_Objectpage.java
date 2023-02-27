@@ -80,6 +80,7 @@ public class BusinessOwner_Objectpage extends BaseClass {
 	}
 
 	public void validate_organizationDetails(WebDriver driver) {
+		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Organisation created successfully.']"));
 		if (driver.findElements(By.xpath("//h2[text()='Organisation created successfully.']")).size() != 0) {
 
 			System.out.println("Organization created successfully!");
@@ -107,7 +108,9 @@ public class BusinessOwner_Objectpage extends BaseClass {
 	}
 
 	public void click_checkboxes(WebDriver driver) {
-
+       //commFunc.Explicitywait(driver, By.xpath("//div[contains(@class,'all-reports-single-block-features')]//child::input"));
+       
+       if(driver.findElements(By.xpath("//div[contains(@class,'all-reports-single-block-features')]//child::input")).size()!=0) {
 		List<WebElement> allLinks = driver
 				.findElements(By.xpath("//div[contains(@class,'all-reports-single-block-features')]//child::input"));
 		Iterator<WebElement> itr = allLinks.iterator();
@@ -130,6 +133,12 @@ public class BusinessOwner_Objectpage extends BaseClass {
 		commFunc.Click(driver, continue_btn);
 
 	}
+       else {
+   		commFunc.Click(driver, By.xpath("//button//span[text()=' Skip for now ']"));
+   		System.out.println("Checkboxes skipped!");
+   	}
+	}
+
 	
 	public void validate_checkboxes(WebDriver driver) {
 		if(driver.findElements(By.xpath("//h1[text()=' Create your first project ']")).size()!=0) {

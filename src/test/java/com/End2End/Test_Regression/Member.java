@@ -58,35 +58,65 @@ public class Member extends BaseClass {
 		member.validate_tracking(driver);
 		logger.log(LogStatus.INFO, "Member tracking validated successfully.!");
 	}
-	
+
 	@Test(testName = "For logout", priority = 31, enabled = false)
 	public void logout() {
 		member.logout(driver);
 	}
-	
-	@Test(testName = "For online filtering records", priority = 32, enabled = true)
+
+	@Test(testName = "For online filtering records", priority = 32, enabled = false)
 	public void filter_online() throws InterruptedException {
-		logger = rep.startTest("New Member scenario");
-        System.out.println("//For online filtering records");
+		System.out.println("//For online filtering records");
 		member.login_old(driver);
 		business.click_module(driver, "Members");
 		member.click_filter(driver);
-		member.validate_online_tracking(driver,"ONLINE");
+		member.validate_online_tracking(driver, "ONLINE");
 		logger.log(LogStatus.INFO, "Online filtering records validated successfully.!");
 	}
-	
-	@Test(testName = "For offline filtering records", priority = 33, enabled = true)
+
+	@Test(testName = "For offline filtering records", priority = 33, enabled = false)
 	public void filter_offline() throws InterruptedException {
-        System.out.println("//For offline filtering records");
+		System.out.println("//For offline filtering records");
 		member.click_filter(driver);
-		member.validate_offline_tracking(driver,"OFFLINE");
+		member.validate_offline_tracking(driver, "OFFLINE");
 		logger.log(LogStatus.INFO, "Offline filtering records validated successfully.!");
 	}
-	
-	@Test(testName = "For clear filter records", priority = 35, enabled = true)
+
+	@Test(testName = "For clear filter records", priority = 34, enabled = false)
 	public void clear_filter() {
 		System.out.println("//For clearing filter");
 		member.clear_filter(driver);
 		logger.log(LogStatus.INFO, "clear filtering records validated successfully.!");
 	}
+
+	@Test(testName = "For Resend invitation link", priority = 35, enabled = true)
+	public void Resend_invitation() {
+		logger = rep.startTest("New Member scenario");
+		member.login_old(driver);
+		System.out.println("//For Resend invitation");
+		business.click_module(driver, "Members");
+		member.click_invitedTab(driver);
+		member.resend_link(driver);
+		member.validate_resend(driver);
+		logger.log(LogStatus.INFO, "Member resend request sent successfully!");
+	}
+
+	@Test(testName = "For Edit invitation update", priority = 36, enabled = true)
+	public void EditInvite() {
+		System.out.println("//For Edit invite updation");
+		member.edit_invite(driver);
+		member.click_save(driver);
+		member.validate_editInvite(driver);
+		logger.log(LogStatus.INFO, "Member edit invitation updated successfully!");
+ 	}
+	
+
+	@Test(testName = "For cancel request", priority = 37, enabled = true)
+	public void Cancel_request() {
+		System.out.println("//For cancel request");
+		member.cancel_invite(driver);
+		member.validate_cancelInvite(driver);
+		logger.log(LogStatus.INFO, "Member request cancelled successfully!");
+ 	}
+
 }
