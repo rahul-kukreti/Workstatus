@@ -44,6 +44,7 @@ public class Forgotpassword extends BaseClass {
 	
 	@Test(testName = "Login for business owner", priority = 19, enabled = true)
 	public void login_for_businesOwner() {
+		//logger = rep.startTest("Forgot password scenarios");
 		Login.Success_login();
 		logger.log(LogStatus.INFO, "Login successful for business owner!");
 	}

@@ -10,6 +10,7 @@ import com.End2End.PagesObjects.BusinessOwner_Objectpage;
 import com.End2End.PagesObjects.Forgotpassword_Objectpage;
 import com.End2End.PagesObjects.Login_Objectpage;
 import com.End2End.PagesObjects.Member_ObjectPage;
+import com.End2End.PagesObjects.Project_ObjectPage;
 import com.End2End.PagesObjects.Signup_Objectpage;
 import com.End2End.PagesObjects.Supportfeature_Objectpage;
 import com.End2End.PagesObjects.Teams_ObjectPage;
@@ -42,6 +43,7 @@ public class BaseClass {
 	public static BusinessOwner_Objectpage business = new BusinessOwner_Objectpage();
 	public static Member_ObjectPage member = new Member_ObjectPage();
 	public static Teams_ObjectPage teams = new Teams_ObjectPage();
+	public static Project_ObjectPage project = new Project_ObjectPage();
 	
 	
 	@Parameters({"enviroment"})

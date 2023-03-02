@@ -57,14 +57,15 @@ public class Member_ObjectPage extends BaseClass {
 
 	public void member_details(WebDriver driver) {
 		commFunc.sendKeys(driver, member_email, (conf.get_newMember()));
-		commFunc.Click(driver, By.xpath("(//mat-select[@formcontrolname])[1]"));
+		commFunc.Explicitywait(driver, By.xpath("//label[contains(@class,'mat-form-field-label')]//mat-label[text()=' Select a role for this member* ']"));
+		commFunc.Click(driver, By.xpath("//label[contains(@class,'mat-form-field-label')]//mat-label[text()=' Select a role for this member* ']"));
 		commFunc.Click(driver, By.xpath("//span[text()='Project Manager']"));
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		commFunc.Click(driver, By.xpath("(//mat-select[@formcontrolname])[2]"));
+		commFunc.Click(driver, By.xpath("//label[contains(@class,'mat-form-field-label')]//mat-label[text()=' Select projects for this member  ']"));
 		commFunc.Click(driver, By.xpath("//mat-pseudo-checkbox//following-sibling::span[text()=' Crm ']"));
 
 	}
@@ -208,6 +209,8 @@ public class Member_ObjectPage extends BaseClass {
 			}
 
 		}
+		
+		
 
 	}
 
@@ -260,7 +263,9 @@ public class Member_ObjectPage extends BaseClass {
 	}
 
 	public void resend_link(WebDriver driver) {
+		commFunc.Explicitywait(driver, By.xpath("(//button//mat-icon[text()='more_vert'])[1]"));
 		commFunc.Click(driver, action_icon);
+		commFunc.Explicitywait(driver, By.xpath("//span[contains(text(),'Resend invite')]"));
 		commFunc.Click(driver, resend);
 	}
 

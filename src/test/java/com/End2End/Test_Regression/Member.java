@@ -43,7 +43,9 @@ public class Member extends BaseClass {
 
 	@Test(testName = "For duplicate request", priority = 29, enabled = false)
 	public void duplicateRequest() {
+		logger = rep.startTest("New Member scenario");
 		System.out.println("//For sending duplicate request");
+		business.click_module(driver, "Members");
 		member.click_addmember(driver);
 		member.member_details(driver);
 		member.click_save(driver);
@@ -89,21 +91,23 @@ public class Member extends BaseClass {
 		logger.log(LogStatus.INFO, "clear filtering records validated successfully.!");
 	}
 
-	@Test(testName = "For Resend invitation link", priority = 35, enabled = false)
+	@Test(testName = "For Resend invitation link", priority = 35, enabled = true)
 	public void Resend_invitation() {
+		//logger = rep.startTest("New Member scenario");
 		System.out.println("//For Resend invitation");
-		member.login_old(driver);
-		business.click_module(driver, "Members");
+		//member.login_old(driver);
+		//business.click_module(driver, "Members");
 		member.click_invitedTab(driver);
 		member.resend_link(driver);
 		member.validate_resend(driver);
 		logger.log(LogStatus.INFO, "Member resend request sent successfully!");
 	}
 
-	@Test(testName = "For Edit invitation update", priority = 36, enabled = false)
-	public void EditInvite() {
+	@Test(testName = "For Edit invitation update", priority = 36, enabled = true)
+	public void EditInvite() throws InterruptedException {
 		System.out.println("//For Edit invite updation");
 		member.edit_invite(driver);
+		Thread.sleep(3000);
 		member.click_save(driver);
 		member.validate_editInvite(driver);
 		logger.log(LogStatus.INFO, "Member edit invitation updated successfully!");

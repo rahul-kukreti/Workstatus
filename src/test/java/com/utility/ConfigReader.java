@@ -119,5 +119,9 @@ public class ConfigReader {
 	public String get_Teamname() {
 		return prop.getProperty("Team_Name");
 	}
+	
+	public String get_Project_desc() {
+		return prop.getProperty("project_desc");
+	}
 }
 

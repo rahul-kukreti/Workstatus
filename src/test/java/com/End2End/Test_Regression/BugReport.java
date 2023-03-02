@@ -33,6 +33,7 @@ public class BugReport extends BaseClass {
 		bg.severity(driver);
 		bg.reproducible(driver);
 		bg.platform(driver);
+		Thread.sleep(2000);
 		bg.captcha_bug(driver);
 		bg.btn_click(driver);
 		String str = driver.switchTo().alert().getText();

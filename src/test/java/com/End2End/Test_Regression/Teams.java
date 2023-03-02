@@ -7,10 +7,10 @@ import com.relevantcodes.extentreports.LogStatus;
 public class Teams extends BaseClass {
 
 	@Test(testName = "Add new team", priority = 38, enabled = true)
-	public void new_member() throws InterruptedException {
+	public void new_team() throws InterruptedException {
 		logger = rep.startTest("New Team scenario");
 		System.out.println("//For Adding new Team");
-		member.login_old(driver);// baad m hata dena esko
+		//member.login_old(driver);// baad m hata dena esko
 		member.logout(driver);
 		login.login(driver);
 		business.click_module(driver, "Teams");
@@ -28,5 +28,15 @@ public class Teams extends BaseClass {
 		logger.log(LogStatus.INFO, "Team filter validate successfully!");
 	}
 	
+	@Test(testName = "Edit Team", priority = 40, enabled = true)
+	public void editTeam() {
+		//logger = rep.startTest("New Team scenario");
+		System.out.println("//For editing new Team");
+		//login.login(driver);
+		//business.click_module(driver, "Teams");
+		teams.editTeam(driver);
+		teams.validate_editteam(driver);
+		logger.log(LogStatus.INFO, "Team updated successfully!");
+	}
 
 }
