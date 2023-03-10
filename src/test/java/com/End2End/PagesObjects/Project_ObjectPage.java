@@ -17,6 +17,7 @@ public class Project_ObjectPage extends BaseClass {
 	By description = By.xpath("//input[@formcontrolname='description']");
 	By save_project = By.xpath("//span[contains(text(),'Save')]");
 	By btn_ok = By.xpath("//button[contains(text(),'OK')]");
+	By btn_close = By.xpath("//button[text()='Close']");
 	
 	public void click_project_btn(WebDriver driver) {
 		commFunc.Explicitywait(driver, add_project);
@@ -44,6 +45,41 @@ public class Project_ObjectPage extends BaseClass {
 			System.out.println("Project already exit");
 			commFunc.Click(driver, btn_ok);
 			
+		}
+		
+	}
+	
+	public void add_newProject(WebDriver driver) {
+		driver.findElement(project_name).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		commFunc.sendKeys(driver, project_name, (conf.get_newproject()));
+		commFunc.Click(driver, save_project);
+	}
+	
+	public void validate_new_project(WebDriver driver) {
+		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Project added successfully.']"));
+		if(driver.findElements(By.xpath("//h2[text()='Project added successfully.']")).size()!=0) {
+			System.out.println("New project added successfully");
+			commFunc.Click(driver, btn_ok);
+			
+		}
+	}
+	
+	public void edit_project(WebDriver driver) {
+		commFunc.Click(driver, By.xpath("//div[contains(text(),'Project name')]"));
+		commFunc.Click(driver, By.xpath("(//button//span//child::mat-icon[contains(text(),'more_vert ')])[1]"));
+		commFunc.Click(driver, By.xpath("//span[text()=' Edit project ']"));
+		commFunc.Click(driver, save_project);
+		
+	}
+	
+	public void validate_editproject(WebDriver driver) {
+		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Project updated successfully.']"));
+		if(driver.findElements(By.xpath("//h2[text()='Project updated successfully.']")).size()!=0){
+			System.out.println("Project edited successfully!");
+			commFunc.Click(driver, btn_close);
+		}
+		else {
+			System.err.println("Project not updated successfully!");
 		}
 	}
 

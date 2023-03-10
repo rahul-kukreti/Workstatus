@@ -319,4 +319,5 @@ public class Member_ObjectPage extends BaseClass {
 		}
 
 	}
+	
 }

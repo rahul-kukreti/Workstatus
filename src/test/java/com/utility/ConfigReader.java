@@ -123,5 +123,9 @@ public class ConfigReader {
 	public String get_Project_desc() {
 		return prop.getProperty("project_desc");
 	}
+	
+	public String get_newproject() {
+		return prop.getProperty("new_project");
+	}
 }
 

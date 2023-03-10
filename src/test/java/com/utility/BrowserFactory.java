@@ -22,6 +22,7 @@ public class BrowserFactory {
 		// Run automation in Incognito
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--incognito");
+		options.addArguments("--remote-allow-origins=*");
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		options.merge(capabilities);
