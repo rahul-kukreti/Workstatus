@@ -10,7 +10,6 @@ public class Project extends BaseClass {
 	public void click_businessoption() throws InterruptedException {
 		logger = rep.startTest("Project scenarios");
 		System.out.println("//For Adding duplicate project");
-		login.login(driver);
 		business.click_module(driver, "Projects");
 		project.click_project_btn(driver);
 		project.duplicate_details(driver);
@@ -45,6 +44,7 @@ public class Project extends BaseClass {
 
 	@Test(testName = "Un-archive project", priority = 45, enabled = false)
 	public void Un_archieve_project() {
+		System.out.println("//For un-archieve project");
 		project.click_archive_tab(driver);
 		project.un_archieve(driver);
 		project.validate_unArchive(driver);
@@ -53,6 +53,7 @@ public class Project extends BaseClass {
 	
 	@Test(testName = "Check move project", priority = 46, enabled = false)
 	public void check_move() {
+		System.out.println("//For move project");
 		project.Move_project(driver);
 		logger.log(LogStatus.INFO, "Project not moved without organization!");
 	}
