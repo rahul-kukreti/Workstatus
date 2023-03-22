@@ -14,6 +14,7 @@ import com.End2End.PagesObjects.Project_ObjectPage;
 import com.End2End.PagesObjects.Signup_Objectpage;
 import com.End2End.PagesObjects.Supportfeature_Objectpage;
 import com.End2End.PagesObjects.Teams_ObjectPage;
+import com.End2End.PagesObjects.Todo_Objectpage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.utility.BrowserFactory;
@@ -44,7 +45,7 @@ public class BaseClass {
 	public static Member_ObjectPage member = new Member_ObjectPage();
 	public static Teams_ObjectPage teams = new Teams_ObjectPage();
 	public static Project_ObjectPage project = new Project_ObjectPage();
-	
+	public static Todo_Objectpage todo = new Todo_Objectpage();
 	
 	
 	@Parameters({"enviroment"})
