@@ -15,11 +15,14 @@ import com.End2End.PagesObjects.Signup_Objectpage;
 import com.End2End.PagesObjects.Supportfeature_Objectpage;
 import com.End2End.PagesObjects.Teams_ObjectPage;
 import com.End2End.PagesObjects.Todo_Objectpage;
+import com.codoid.products.exception.FilloException;
+import com.codoid.products.fillo.Recordset;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.utility.BrowserFactory;
 import com.utility.CommonFunctions;
 import com.utility.ConfigReader;
+import com.utility.DataInput;
 import com.utility.ExtentManager;
 import com.utility.Utility;
 
@@ -27,11 +30,12 @@ public class BaseClass {
 
 	public static WebDriver driver;
 
-	//ExtentReport;
+	// ExtentReport;
 	public ExtentReports rep = ExtentManager.getInstance();
 	public static ExtentTest logger;
-	
-	
+	public static Recordset record;
+	String sheetName = "Workstatus";
+
 	public static CommonFunctions commFunc = new CommonFunctions();
 	public static BrowserFactory browserSelect = new BrowserFactory();
 	public static Signup_Objectpage sign = new Signup_Objectpage();
@@ -46,15 +50,23 @@ public class BaseClass {
 	public static Teams_ObjectPage teams = new Teams_ObjectPage();
 	public static Project_ObjectPage project = new Project_ObjectPage();
 	public static Todo_Objectpage todo = new Todo_Objectpage();
-	
-	
-	@Parameters({"enviroment"})
-	@BeforeSuite(description = "initializing Driver", alwaysRun= true)
+	public static DataInput input = new DataInput();
+
+	@Parameters({ "enviroment" })
+	@BeforeSuite(description = "initializing Driver", alwaysRun = true)
 	public void initializeDriver(String enviroment) throws InterruptedException {
-			driver = browserSelect.openChromeIncongnito();
-		//driver = new ChromeDriver();
-			driver.manage().window().maximize();
-			driver.get("https://app.newstaging.workstatus.io/");
-			
+		driver = browserSelect.openChromeIncongnito();
+		// driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://app.newstaging.workstatus.io/");
+
+	}
+
+	@Parameters({ "testCaseID" })
+	@BeforeSuite(description = "initializing DataInput", alwaysRun = true)
+	public void initializeInpuData(String testCaseID) throws FilloException {
+
+		// Get data from sheet
+		record = input.getValuefromsheet(sheetName, testCaseID);
 	}
 }
