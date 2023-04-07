@@ -285,7 +285,7 @@ public class CommonFunctions {
 
 	// <--------------------File Uploading------------------->
 	public void fileUpload(WebDriver driver, String fileDir) {
-		By inputFileDirField = By.xpath("//div[@class='attachment-title']//child::span[text()='Drop files or add attachments here...']//following-sibling::input[@type='file']");
+		By inputFileDirField = By.xpath("//div[contains(@class,'customFileUpload')]//input[@type='file']");
 		this.explicitywaitInvisibility(driver, inputFileDirField);
 		this.sendKeys(driver, inputFileDirField, fileDir);
 	}

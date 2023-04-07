@@ -3,6 +3,7 @@ package com.End2End.Test_Regression;
 import org.testng.annotations.Test;
 
 import com.codoid.products.exception.FilloException;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class ToDo extends BaseClass {
 
@@ -33,6 +34,10 @@ public class ToDo extends BaseClass {
 		//To get To-do description from sheet
 		String description = record.getField("Desciption");
 		todo.todo_detail(driver, priority,description);
+		member.click_limit(driver);
+		todo.validate_tod0(driver);
+		logger.log(LogStatus.INFO, "ToDo created successfully!");
+		
 	}
 
 }

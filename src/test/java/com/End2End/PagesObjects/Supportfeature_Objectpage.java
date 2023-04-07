@@ -36,18 +36,14 @@ public class Supportfeature_Objectpage extends BaseClass {
 	public void click_file(WebDriver driver, String fileName) {
 		try {
 			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 		String fileDir = System.getProperty("user.dir") + "\\UploadData\\" + fileName + "";
 		System.out.println(fileDir);
 		commFunc.fileUpload(driver, fileDir);
-
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
+		}
+		 catch (InterruptedException e) {
 			e.printStackTrace();
+			System.err.println("File not found!");
 		}
 	}
 
