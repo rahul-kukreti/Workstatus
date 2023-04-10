@@ -61,7 +61,7 @@ public class Todo_Objectpage extends BaseClass {
 		commFunc.sendKeys(driver, description, descrip);
 	}
 	
-	public void validate_tod0(WebDriver driver) {
+	public void validate_todo(WebDriver driver) {
 		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Todo created successfully.']"));
 		if(driver.findElements(By.xpath("//h2[text()='Todo created successfully.']")).size()!=0) {
 			System.out.println("To-do created successfully!");

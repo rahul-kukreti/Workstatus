@@ -35,7 +35,7 @@ public class ToDo extends BaseClass {
 		String description = record.getField("Desciption");
 		todo.todo_detail(driver, priority,description);
 		member.click_limit(driver);
-		todo.validate_tod0(driver);
+		todo.validate_todo(driver);
 		logger.log(LogStatus.INFO, "ToDo created successfully!");
 		
 	}
