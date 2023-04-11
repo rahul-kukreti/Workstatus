@@ -1,7 +1,5 @@
 package com.End2End.PagesObjects;
 
-import java.io.File;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

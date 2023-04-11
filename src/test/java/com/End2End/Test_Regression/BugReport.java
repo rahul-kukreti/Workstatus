@@ -1,15 +1,10 @@
 package com.End2End.Test_Regression;
 
-import java.time.Duration;
+
 import java.util.ArrayList;
-
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
 import com.relevantcodes.extentreports.LogStatus;
-import com.utility.Utility;
 
 public class BugReport extends BaseClass {
 
