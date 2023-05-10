@@ -140,7 +140,7 @@ public class CommonFunctions {
 			}
 		}
 	}
-
+	
 	// <---------------------Click Element By using JavaScript
 	// Executer-------------------->
 	public void jclick(WebDriver driver, By Locator) {

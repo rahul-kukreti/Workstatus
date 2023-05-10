@@ -31,9 +31,20 @@ public class Todo_Objectpage extends BaseClass {
 
 		commFunc.sendKeys(driver, todo_name, name);
 		commFunc.Click(driver, project_name);
-		commFunc.Click(driver, By.xpath("(//mat-option//span[text()='" + p_name + "'])[1]"));
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		commFunc.Click(driver, By.xpath("(//mat-option//span[text()='" + p_name + "'])"));
 		commFunc.Click(driver, member_name);
-		commFunc.Click(driver, By.xpath("//span[contains(text(),'" + m_name + "')]"));
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		commFunc.Click(driver,By.xpath("//mat-select[@formcontrolname='member']"));
+		commFunc.jclick(driver, By.xpath("//div[@role='listbox']//child::span[contains(text(),'"+ m_name + "')]"));
 		driver.findElement(member_name).sendKeys((Keys.TAB));
 	}
 
@@ -47,6 +58,11 @@ public class Todo_Objectpage extends BaseClass {
 			driver.findElement(By.xpath("//div[contains(@class,'mat-calendar-body-today')]")).click();
 			commFunc.Click(driver, close_calander);
 			driver.findElement(By.xpath("//div[contains(@class,'mat-calendar-body-today')]")).click();
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			break;
 
 		}
@@ -65,6 +81,12 @@ public class Todo_Objectpage extends BaseClass {
 		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Todo created successfully.']"));
 		if(driver.findElements(By.xpath("//h2[text()='Todo created successfully.']")).size()!=0) {
 			System.out.println("To-do created successfully!");
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			commFunc.Click(driver, btn_ok);
 		}
 		else{

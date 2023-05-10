@@ -245,6 +245,12 @@ public class Member_ObjectPage extends BaseClass {
 
 		commFunc.sendKeyswithEnter(driver, email, (conf.getemail_member_old()));
 		commFunc.sendKeyswithEnter(driver, password, (conf.getpass_member_old()));
+		
+		//commFunc.Explicitywait( driver,By.xpath("//h2[text()='Oh snap!']"));
+		if(driver.findElements(By.xpath("//h2[text()='Oh snap!']")).size()!=0) {
+			System.err.println("User cannot able to login successfully due to server error!");
+			commFunc.Click(driver, btn_ok);
+		}
 	}
 
 	public void clear_filter(WebDriver driver) {
