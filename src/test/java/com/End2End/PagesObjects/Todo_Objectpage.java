@@ -21,6 +21,9 @@ public class Todo_Objectpage extends BaseClass {
 	By close_calander = By.xpath("(//button[@aria-label='Open calendar'])[2]");
 	By description = By.xpath("//textarea[@formcontrolname='description']");
 	By btn_ok = By.xpath("//button[contains(text(),'OK')]");
+	By action_icon = By.xpath("(//button//mat-icon[text()='more_vert'])[1]");
+	By selectproject = By.xpath("//mat-select[@formcontrolname='selectedProjects']");
+	By searchproject = By.xpath("//input[@placeholder='Search projects']");
 
 	public void click_addTodo_btn(WebDriver driver) {
 		commFunc.Explicitywait(driver, add_todo);
@@ -43,8 +46,8 @@ public class Todo_Objectpage extends BaseClass {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		commFunc.Click(driver,By.xpath("//mat-select[@formcontrolname='member']"));
-		commFunc.jclick(driver, By.xpath("//div[@role='listbox']//child::span[contains(text(),'"+ m_name + "')]"));
+		commFunc.Click(driver, By.xpath("//mat-select[@formcontrolname='member']"));
+		commFunc.jclick(driver, By.xpath("//div[@role='listbox']//child::span[contains(text(),'" + m_name + "')]"));
 		driver.findElement(member_name).sendKeys((Keys.TAB));
 	}
 
@@ -76,10 +79,10 @@ public class Todo_Objectpage extends BaseClass {
 		commFunc.Click(driver, description);
 		commFunc.sendKeys(driver, description, descrip);
 	}
-	
+
 	public void validate_todo(WebDriver driver) {
 		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Todo created successfully.']"));
-		if(driver.findElements(By.xpath("//h2[text()='Todo created successfully.']")).size()!=0) {
+		if (driver.findElements(By.xpath("//h2[text()='Todo created successfully.']")).size() != 0) {
 			System.out.println("To-do created successfully!");
 			try {
 				Thread.sleep(2000);
@@ -88,9 +91,96 @@ public class Todo_Objectpage extends BaseClass {
 				e.printStackTrace();
 			}
 			commFunc.Click(driver, btn_ok);
-		}
-		else{
+		} else {
 			System.err.println("To-do cannot able to created successfully!");
+		}
+	}
+
+	public void todo_action(WebDriver driver, String action) {
+		commFunc.Click(driver, action_icon);
+		commFunc.Click(driver, By.xpath("//div[@role='menu']//child::button//span[contains(text(),'" + action + "')]"));
+
+	}
+
+	public void validate_viewtoDo(WebDriver driver) throws InterruptedException {
+
+		commFunc.Explicitywait(driver, By.xpath("//button//span[contains(text(),'Edit To-do')]"));
+		if (driver.findElements(By.xpath("//button//span[contains(text(),'Edit To-do')]")).size() != 0) {
+			Thread.sleep(4000);
+			commFunc.Click(driver, By.xpath("//button//span[contains(text(),'Edit To-do')]"));
+			System.out.println("To-do viewed successfully.");
+			business.click_continue_btn(driver);
+		}
+
+		else {
+			System.out.println("hello ji");
+			commFunc.Click(driver,
+					By.xpath("//ancestor::div[text()='Back']//parent::div//child::span[@class='mat-button-wrapper']"));
+
+		}
+	}
+
+	public void edit_toDo(WebDriver driver) throws InterruptedException {
+
+		Thread.sleep(4000);
+		WebElement ele = driver.findElement(By.xpath(
+				"//ancestor::span[contains(text(),'Browse Files')]//parent::div[contains(@class,'customFileUpload')]//child::input[@type='file']"));
+		ele.sendKeys(System.getProperty("user.dir") + "\\UploadData\\" + "joins.png");
+		Thread.sleep(3000);
+		System.out.println(ele);
+		member.click_limit(driver);
+
+	}
+
+	public void validate_edit_toDo(WebDriver driver) {
+		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Todo updated successfully.']"));
+		if (driver.findElements(By.xpath("//h2[text()='Todo updated successfully.']")).size() != 0) {
+			System.out.println("To-Do edited successfully!");
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			commFunc.Click(driver, btn_ok);
+		} else {
+			System.err.println("To-Do not edited successfully!");
+		}
+	}
+
+	public void validate_filter(WebDriver driver, String p_name) throws InterruptedException {
+
+		commFunc.Explicitywait(driver, By.xpath("//mat-select[@formcontrolname='selectedProjects']"));
+
+		Thread.sleep(3000);
+		commFunc.Click(driver, selectproject);
+		commFunc.Click(driver, By.xpath("//mat-option//span[contains(text(),'" + p_name + "')]"));
+		Thread.sleep(3000);
+        
+	}
+
+	public void filter_project(WebDriver driver, String name, String filter_project) {
+		commFunc.Click(driver, searchproject);
+		commFunc.sendKeys(driver, searchproject, name);
+		commFunc.Click(driver, By.xpath("//mat-option//span[contains(text(),'" + filter_project + "')]"));
+	}
+	
+	public void validate_filter_project(WebDriver driver,String actual_name) throws InterruptedException {
+		
+		Thread.sleep(2000);
+		List<WebElement> project_name = driver.findElements(By.xpath("//ancestor::mat-table//child::div//child::p[contains(text(),'Exit360')]"));
+		
+		int countOffilterValue = project_name.size();
+		
+		for(int i = 0; i<countOffilterValue; i++) {
+			
+			String expected_name = project_name.get(i).getText();
+			if(expected_name.equalsIgnoreCase(actual_name)) {
+				System.out.println("project filter out successfully");
+				
+			}
+			else {
+				System.err.println("project is not filter out successfully");
+			}
 		}
 	}
 }

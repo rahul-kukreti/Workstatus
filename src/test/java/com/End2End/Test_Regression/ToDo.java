@@ -11,33 +11,71 @@ public class ToDo extends BaseClass {
 	public void add_todo() throws FilloException {
 		logger = rep.startTest("To-Do's scenarios");
 		System.out.println("//For Add To-dos");
-		//member.logout(driver); //open when full fledge running
+		// member.logout(driver); //open when full fledge running
 		member.login_old(driver);
+		member.interrupt(driver);
 		business.click_module(driver, "To-dos");
 		todo.click_addTodo_btn(driver);
-		
-		//To get To-do name from sheet
+
+		// To get To-do name from sheet
 		String Name = record.getField("Name");
-		
-		//To get To-do project name from sheet
+
+		// To get To-do project name from sheet
 		String p_name = record.getField("P_Name");
-		
-		//To get To-do member name from sheet
+
+		// To get To-do member name from sheet
 		String m_name = record.getField("M_Name");
-		todo.todo_details(driver, Name,p_name,m_name);
+		todo.todo_details(driver, Name, p_name, m_name);
 		business.click_continue_btn(driver);
 		todo.get_current_date(driver);
-		
-		//To get To-do priority from sheet
+
+		// To get To-do priority from sheet
 		String priority = record.getField("Priority");
-		
-		//To get To-do description from sheet
+
+		// To get To-do description from sheet
 		String description = record.getField("Desciption");
-		todo.todo_detail(driver, priority,description);
+		todo.todo_detail(driver, priority, description);
 		member.click_limit(driver);
+		member.interrupt(driver);
 		todo.validate_todo(driver);
 		logger.log(LogStatus.INFO, "ToDo created successfully!");
-		
+
+	}
+
+	@Test(testName = "View To-Do", priority = 48, enabled = true)
+	public void view_todo() throws InterruptedException {
+
+		todo.todo_action(driver, "View ToDo");
+		System.out.println("//For View To-dos");
+		todo.validate_viewtoDo(driver);
+		logger.log(LogStatus.INFO, "View Todo validated successfully");
+	}
+
+	@Test(testName = "Edit To do", priority = 49, enabled = true)
+	public void edit_todo() throws InterruptedException {
+		System.out.println("//For Edit To-dos");
+		todo.edit_toDo(driver);
+		todo.validate_edit_toDo(driver);
+		logger.log(LogStatus.INFO, "Edit Todo validated successfully");
+	}
+
+	@Test(testName = "Filter To-Do", priority = 50, enabled = true)
+	public void filter_todo() throws FilloException, InterruptedException {
+		System.out.println("//For Filter To-dos");
+		// To get To-do project name from sheet
+		String p_name = record.getField("P_Name");
+		todo.validate_filter(driver,p_name);
+		logger.log(LogStatus.INFO, "Filter To-Do validated successfully");
+	}
+	
+	@Test(testName = "filter project", priority = 51, enabled = true)
+	public void filter_project() throws FilloException, InterruptedException {
+		System.out.println("//For Filter project");
+		String filter_project = record.getField("Filter_Project");
+		todo.filter_project(driver,"Exit", filter_project);
+		todo.validate_filter_project(driver,"Exit360");
+		logger.log(LogStatus.INFO, " project Filter To-Do validated successfully");
+		driver.navigate().refresh();
 	}
 
 }
