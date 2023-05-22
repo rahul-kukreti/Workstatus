@@ -127,7 +127,6 @@ public class Todo_Objectpage extends BaseClass {
 				"//ancestor::span[contains(text(),'Browse Files')]//parent::div[contains(@class,'customFileUpload')]//child::input[@type='file']"));
 		ele.sendKeys(System.getProperty("user.dir") + "\\UploadData\\" + "joins.png");
 		Thread.sleep(3000);
-		System.out.println(ele);
 		member.click_limit(driver);
 
 	}
@@ -183,4 +182,46 @@ public class Todo_Objectpage extends BaseClass {
 			}
 		}
 	}
+	
+	public void validate_complete_tdo(WebDriver driver) {
+		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Todo marked completed successfully.']"));
+		
+		if(driver.findElements(By.xpath("//h2[text()='Todo marked completed successfully.']")).size()!=0) {
+			System.out.println("To-Do completed successfully");
+			commFunc.Click(driver, btn_ok);
+		}
+		
+		else {
+			System.err.println("To-Do not completed successfully");
+		}
+	}
+	
+	public void validatae_reopen_Todo(WebDriver driver) {
+		
+		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Todo re-opened successfully.']"));
+		
+		if(driver.findElements(By.xpath("//h2[text()='Todo re-opened successfully.']")).size()!=0) {
+			System.out.println("To-Do reopen successfully");
+			commFunc.Click(driver, btn_ok);
+		}
+		
+		else {
+			System.err.println("To-Do not re-open successfully");
+		}
+	}
+	
+	public void validate_delete_Todo(WebDriver driver) {
+		
+		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Todo deleted successfully.']"));
+		
+		if(driver.findElements(By.xpath("//h2[text()='Todo deleted successfully.']")).size()!=0) {
+			System.out.println("To-Do delete successfully");
+			commFunc.Click(driver, btn_ok);
+		}
+		
+		else {
+			System.err.println("To-Do not deleted successfully");
+		}
+	}
+	
 }

@@ -64,18 +64,44 @@ public class ToDo extends BaseClass {
 		System.out.println("//For Filter To-dos");
 		// To get To-do project name from sheet
 		String p_name = record.getField("P_Name");
-		todo.validate_filter(driver,p_name);
+		todo.validate_filter(driver, p_name);
 		logger.log(LogStatus.INFO, "Filter To-Do validated successfully");
 	}
-	
+
 	@Test(testName = "filter project", priority = 51, enabled = true)
 	public void filter_project() throws FilloException, InterruptedException {
 		System.out.println("//For Filter project");
 		String filter_project = record.getField("Filter_Project");
-		todo.filter_project(driver,"Exit", filter_project);
-		todo.validate_filter_project(driver,"Exit360");
+		todo.filter_project(driver, "Exit", filter_project);
+		todo.validate_filter_project(driver, "Exit360");
 		logger.log(LogStatus.INFO, " project Filter To-Do validated successfully");
 		driver.navigate().refresh();
+	}
+
+	@Test(testName = "complete ToDo", priority = 52, enabled = true)
+	public void complete_todo() {
+		System.out.println("For complete ToDo");
+		todo.todo_action(driver, "Complete ToDo");
+		todo.validate_complete_tdo(driver);
+		logger.log(LogStatus.INFO, "To-Do completed successfully");
+
+	}
+
+	@Test(testName = "Re-open ToDo", priority = 53, enabled = true)
+	public void ReOpen_ToDo() {
+		System.out.println("For Re-open ToDo");
+		todo.todo_action(driver, "Reopen Todo");
+		todo.validatae_reopen_Todo(driver);
+		logger.log(LogStatus.INFO, "To-Do re-open successfully");
+	}
+	
+	@Test(testName = "Delete ToDo", priority = 54, enabled= true)
+	
+	public void Delete_Todo() {
+		System.out.println("For Delete ToDo");
+		todo.todo_action(driver, "Delete ToDo");
+		todo.validate_delete_Todo(driver);
+		logger.log(LogStatus.INFO, "To-Do delete successfully");
 	}
 
 }
