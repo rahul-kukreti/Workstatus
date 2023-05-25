@@ -6,7 +6,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class Project extends BaseClass {
 
-	@Test(testName = "Add duplicate project", priority = 41, enabled = false)
+	@Test(testName = "Add duplicate project", priority = 41, enabled = true)
 	public void click_businessoption() throws InterruptedException {
 		logger = rep.startTest("Project scenarios");
 		System.out.println("//For Adding duplicate project");
@@ -17,7 +17,7 @@ public class Project extends BaseClass {
 		logger.log(LogStatus.INFO, "Duplicate project validated successfully!");
 	}
 
-	@Test(testName = "Add new project", priority = 42, enabled = false)
+	@Test(testName = "Add new project", priority = 42, enabled = true)
 	public void new_project() {
 		System.out.println("//For Adding new project");
 		project.add_newProject(driver);
@@ -26,7 +26,7 @@ public class Project extends BaseClass {
 
 	}
 
-	@Test(testName = "Edit new project", priority = 43, enabled = false)
+	@Test(testName = "Edit new project", priority = 43, enabled = true)
 	public void edit_project() {
 		System.out.println("//For Editing new project");
 		project.edit_project(driver);
@@ -34,7 +34,7 @@ public class Project extends BaseClass {
 		logger.log(LogStatus.INFO, "New project edited validated successfully!");
 	}
 
-	@Test(testName = "Archive project", priority = 44, enabled = false)
+	@Test(testName = "Archive project", priority = 44, enabled = true)
 	public void archieve_project() {
 		System.out.println("//For archieve project");
 		project.Archieve_project(driver);
@@ -42,7 +42,7 @@ public class Project extends BaseClass {
 		logger.log(LogStatus.INFO, "Project moved to archive successfully!");
 	}
 
-	@Test(testName = "Un-archive project", priority = 45, enabled = false)
+	@Test(testName = "Un-archive project", priority = 45, enabled = true)
 	public void Un_archieve_project() {
 		System.out.println("//For un-archieve project");
 		project.click_archive_tab(driver);
@@ -51,7 +51,7 @@ public class Project extends BaseClass {
 		logger.log(LogStatus.INFO, "Project moved to Un-archive successfully!");
 	}
 	
-	@Test(testName = "Check move project", priority = 46, enabled = false)
+	@Test(testName = "Check move project", priority = 46, enabled = true)
 	public void check_move() {
 		System.out.println("//For move project");
 		project.Move_project(driver);

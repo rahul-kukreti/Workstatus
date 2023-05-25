@@ -11,7 +11,7 @@ public class ToDo extends BaseClass {
 	public void add_todo() throws FilloException {
 		logger = rep.startTest("To-Do's scenarios");
 		System.out.println("//For Add To-dos");
-		// member.logout(driver); //open when full fledge running
+		 member.logout(driver); //open when full fledge running
 		member.login_old(driver);
 		member.interrupt(driver);
 		business.click_module(driver, "To-dos");

@@ -7,6 +7,7 @@ import org.testng.annotations.Parameters;
 
 import com.End2End.PagesObjects.BugReport_Objectpage;
 import com.End2End.PagesObjects.BusinessOwner_Objectpage;
+import com.End2End.PagesObjects.Clients_Objectpage;
 import com.End2End.PagesObjects.Forgotpassword_Objectpage;
 import com.End2End.PagesObjects.Login_Objectpage;
 import com.End2End.PagesObjects.Member_ObjectPage;
@@ -51,6 +52,7 @@ public class BaseClass {
 	public static Project_ObjectPage project = new Project_ObjectPage();
 	public static Todo_Objectpage todo = new Todo_Objectpage();
 	public static DataInput input = new DataInput();
+	public static Clients_Objectpage client =  new Clients_Objectpage();
 
 
 	@Parameters({ "enviroment" })

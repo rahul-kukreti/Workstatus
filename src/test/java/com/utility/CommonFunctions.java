@@ -176,6 +176,21 @@ public class CommonFunctions {
 		element.sendKeys(value);
 	}
 	
+	//For in-case data send into field for formcontrolname
+	
+	 public void put_field_data(WebDriver driver,String field_data, String value) {
+		  
+		  WebElement ele = driver.findElement(By.xpath("//input[@formcontrolname='"+field_data+"']"));
+		  ele.sendKeys(value);
+	  }
+	 
+	 //For in case mat-select with formcontrolname
+	 
+	 public void selectDropdown(WebDriver driver, String name, String drop_value) {
+		 this.Click(driver, By.xpath("//mat-select[@formcontrolname='"+name+"']"));
+		 this.Click(driver, By.xpath("//div[@role='listbox']//mat-option//span[contains(text(),'"+drop_value+"')]"));
+	 }
+	
 
 	// <----------------------Send Data into Locater by using JavaScript
 	// Executer---------------->
