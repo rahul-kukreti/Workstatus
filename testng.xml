@@ -55,11 +55,23 @@
 		<classes>
 			<class name="com.End2End.Test_Regression.Project" />
 		</classes>
-		</test> -->
+		</test>
 		
 		<test name="ToDo" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.ToDo" />
+		</classes>
+	</test>
+	
+	<test name="Clients" preserve-order="true">
+		<classes>
+			<class name="com.End2End.Test_Regression.Clients" />
+		</classes>
+	</test> -->
+	
+	<test name="WorkOrder" preserve-order="true">
+		<classes>
+			<class name="com.End2End.Test_Regression.WorkOrder" />
 		</classes>
 	</test>
 </suite>
