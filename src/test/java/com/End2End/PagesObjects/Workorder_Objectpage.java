@@ -3,11 +3,13 @@ package com.End2End.PagesObjects;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.End2End.Test_Regression.BaseClass;
+import com.utility.Utility;
 
 public class Workorder_Objectpage extends BaseClass {
 
@@ -17,6 +19,9 @@ public class Workorder_Objectpage extends BaseClass {
 	By instruction = By.xpath("//textarea[@formcontrolname='textIns']");
 	By click_next = By.xpath("//div[contains(@class,'d-flex w-100 justify-content-end ng-star-inserted')]//button//span[contains(text(),'Next')]");
 	By btn_ok = By.xpath("//button[contains(text(),'OK')]");
+	By Geo = By.xpath("//input[@type='text']");
+	By vertical = By.xpath("ps__rail-y");
+	By job_site = By.xpath("body > app-component:nth-child(4) > mat-drawer-container:nth-child(2) > mat-drawer-content:nth-child(5) > vertical-layout-1:nth-child(1) > div:nth-child(1) > div:nth-child(1) > fuse-sidebar:nth-child(1) > navbar:nth-child(1) > navbar-vertical-style-1:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1) > span:nth-child(2)");
 	
 
 	public void select_client(WebDriver driver) {
@@ -85,6 +90,12 @@ public class Workorder_Objectpage extends BaseClass {
 		else {
 			System.out.println("Work Order added successfully");
 		}
+	}
+	
+	public void set_geo(WebDriver driver) throws InterruptedException {
+		driver.navigate().to("https://app.newstaging.workstatus.io/dashboard/job-site");
+		commFunc.sendKeys(driver, Geo, "Noida");
+		driver.findElement(Geo).sendKeys(Keys.TAB);
 	}
 
 	

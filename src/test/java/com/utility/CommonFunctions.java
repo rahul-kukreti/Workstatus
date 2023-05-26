@@ -286,12 +286,14 @@ public class CommonFunctions {
 		}
 	}
 
-	public static void scrollIntoElement(WebDriver driver, By element) {
+	public void scrollIntoElement(WebDriver driver, By element) {
 		try {
-			Thread.sleep(500);
+			Thread.sleep(5000);
 
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",
 					driver.findElement(element));
+			this.Click(driver, element);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

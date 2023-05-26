@@ -1,5 +1,8 @@
 package com.utility;
 
+import java.util.HashMap;
+
+import org.apache.commons.collections.map.HashedMap;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,12 +20,11 @@ public class BrowserFactory {
 
 		// Run automation in Incognito
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--incognito");
+		//options.addArguments("--incognito");
 		options.addArguments("--remote-allow-origins=*");
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		options.merge(capabilities);
-		// String projectPath = System.getProperty("user.dir");
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver(options);
 		return driver;
