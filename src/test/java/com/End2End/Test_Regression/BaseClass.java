@@ -16,6 +16,7 @@ import com.End2End.PagesObjects.Signup_Objectpage;
 import com.End2End.PagesObjects.Supportfeature_Objectpage;
 import com.End2End.PagesObjects.Teams_ObjectPage;
 import com.End2End.PagesObjects.Todo_Objectpage;
+import com.End2End.PagesObjects.Workorder_Objectpage;
 import com.codoid.products.exception.FilloException;
 import com.codoid.products.fillo.Recordset;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -53,6 +54,7 @@ public class BaseClass {
 	public static Todo_Objectpage todo = new Todo_Objectpage();
 	public static DataInput input = new DataInput();
 	public static Clients_Objectpage client =  new Clients_Objectpage();
+	public static Workorder_Objectpage work =  new Workorder_Objectpage();
 
 
 	@Parameters({ "enviroment" })
