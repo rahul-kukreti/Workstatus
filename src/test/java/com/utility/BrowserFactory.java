@@ -1,6 +1,7 @@
 package com.utility;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.collections.map.HashedMap;
 import org.openqa.selenium.WebDriver;
@@ -20,8 +21,19 @@ public class BrowserFactory {
 
 		// Run automation in Incognito
 		ChromeOptions options = new ChromeOptions();
-		//options.addArguments("--incognito");
+		options.addArguments("--incognito");
 		options.addArguments("--remote-allow-origins=*");
+		
+		Map<String, Object> prefs = new HashMap<String, Object>();
+		Map<String, Object> profile = new HashMap<String, Object>();
+		Map<String, Object> contentSettings = new HashMap<String, Object>();
+
+		// SET CHROME OPTIONS
+		contentSettings.put("geolocation", 1);
+		profile.put("managed_default_content_settings", contentSettings);
+		prefs.put("profile", profile);
+		options.setExperimentalOption("prefs", prefs);
+		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		options.merge(capabilities);

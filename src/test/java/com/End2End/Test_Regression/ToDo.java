@@ -33,7 +33,7 @@ public class ToDo extends BaseClass {
 		String priority = record.getField("Priority");
 
 		// To get To-do description from sheet
-		String description = record.getField("Desciption");
+		String description = record.getField("Description");
 		todo.todo_detail(driver, priority, description);
 		member.click_limit(driver);
 		member.interrupt(driver);

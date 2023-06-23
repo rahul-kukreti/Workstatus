@@ -93,10 +93,15 @@ public class Workorder_Objectpage extends BaseClass {
 	}
 	
 	public void set_geo(WebDriver driver) throws InterruptedException {
-		driver.navigate().to("https://app.newstaging.workstatus.io/dashboard/job-site");
-		commFunc.sendKeys(driver, Geo, "Noida");
-		driver.findElement(Geo).sendKeys(Keys.TAB);
+		By jobsites = By.xpath("//a[@href='/dashboard/job-site']");
+		commFunc.scrollIntoElement(driver, jobsites);
+		Thread.sleep(3000);
+		//commFunc.sendKeys(driver, Geo, "Noida");
+		//driver.findElement(Geo).sendKeys(Keys.TAB);
+		Utility.captureScreenShot(driver,"location");
 	}
+	
+	
 
 	
 

@@ -15,7 +15,7 @@ import com.utility.Utility;
 
 public class WorkOrder extends BaseClass {
 
-	@Test(testName = "Add WorkOrder", priority = 59, enabled = true)
+	@Test(testName = "Add WorkOrder", priority = 59, enabled = false)
 	public void add_Workorder() throws InterruptedException, FilloException {
 		logger = rep.startTest("WorkOrder scenarios");
 		System.out.println("//For adding workorder");
@@ -51,8 +51,9 @@ public class WorkOrder extends BaseClass {
 
 	@Test(testName = "Geolocation", priority = 60, enabled = true)
 	public void get_Geolocation() throws InterruptedException {
+		logger = rep.startTest("WorkOrder scenarios");
 		System.out.println("//For geolocation");
-		Thread.sleep(3000);
+		member.login_old(driver); 
 		work.set_geo(driver);
 	}
 

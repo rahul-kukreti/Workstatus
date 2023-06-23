@@ -243,7 +243,7 @@ public class Member_ObjectPage extends BaseClass {
 
 	public void login_old(WebDriver driver) {
 
-		commFunc.sendKeyswithEnter(driver, email, (conf.getemail_member_old()));
+		commFunc.sendKeys(driver, email, (conf.getemail_member_old()));
 		commFunc.sendKeyswithEnter(driver, password, (conf.getpass_member_old()));
 	}
 	

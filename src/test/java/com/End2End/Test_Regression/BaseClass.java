@@ -12,6 +12,7 @@ import com.End2End.PagesObjects.Forgotpassword_Objectpage;
 import com.End2End.PagesObjects.Login_Objectpage;
 import com.End2End.PagesObjects.Member_ObjectPage;
 import com.End2End.PagesObjects.Project_ObjectPage;
+import com.End2End.PagesObjects.Schedules_Objectpage;
 import com.End2End.PagesObjects.Signup_Objectpage;
 import com.End2End.PagesObjects.Supportfeature_Objectpage;
 import com.End2End.PagesObjects.Teams_ObjectPage;
@@ -55,6 +56,7 @@ public class BaseClass {
 	public static DataInput input = new DataInput();
 	public static Clients_Objectpage client =  new Clients_Objectpage();
 	public static Workorder_Objectpage work =  new Workorder_Objectpage();
+	public static Schedules_Objectpage schedule = new Schedules_Objectpage();
 
 
 	@Parameters({ "enviroment" })
