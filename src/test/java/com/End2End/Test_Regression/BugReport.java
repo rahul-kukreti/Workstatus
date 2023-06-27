@@ -23,12 +23,13 @@ public class BugReport extends BaseClass {
 	@Test(testName = "Validate blank title", priority = 11, enabled = true)
 	public void blank_title() throws InterruptedException {
 		System.out.println("//For validatinig blank title..!!");
+		driver.navigate().refresh();
 		bg.blank_title(driver);
 		// bg.click_file(driver,"joins.png");
 		bg.severity(driver);
 		bg.reproducible(driver);
 		bg.platform(driver);
-		Thread.sleep(2000);
+		
 		bg.captcha_bug(driver);
 		bg.btn_click(driver);
 		String str = driver.switchTo().alert().getText();

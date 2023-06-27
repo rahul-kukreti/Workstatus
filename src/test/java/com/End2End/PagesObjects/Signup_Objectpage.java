@@ -17,7 +17,7 @@ public class Signup_Objectpage extends BaseClass {
 	By password = By.xpath("//input[@formcontrolname='password']");
 	By passwordConfirm = By.xpath("//input[@formcontrolname='passwordConfirm']");
 	By checkbox = By.xpath("(//input[@type='checkbox'])[1]");
-	By sign_up_btn = By.xpath("//button//span[text()=' Sign up ']");
+	By sign_up_btn = By.xpath("//button//span[contains(text(),' Proceed To Sign up ')]");
 	By btn_ok = By.xpath("//button[text()='OK']");
 	By btn_success = By.xpath("//span[text()=' OK ']");
 
@@ -58,7 +58,7 @@ public class Signup_Objectpage extends BaseClass {
 		commFunc.sendKeyswithEnter(driver, email,(conf.getemail()));
 		commFunc.sendKeyswithEnter(driver, phone,(conf.getphone()));
 		commFunc.sendKeyswithEnter(driver, password,(conf.getpassword()));
-		commFunc.sendKeyswithEnter(driver, passwordConfirm,(conf.getConfirm_passowrd()));
+		commFunc.sendKeys(driver, passwordConfirm,(conf.getConfirm_passowrd()));
 		
 	}
 

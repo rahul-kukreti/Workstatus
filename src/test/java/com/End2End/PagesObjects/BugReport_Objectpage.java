@@ -1,5 +1,6 @@
 package com.End2End.PagesObjects;
 
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 import org.openqa.selenium.By;
@@ -107,8 +108,8 @@ public class BugReport_Objectpage extends BaseClass {
 		commFunc.Click(driver, By.xpath("//select[@name='UDF_NCHAR3']//child::option[2]"));
 	}
 	
-	public void captcha_bug(WebDriver driver) {
-		
+	public void captcha_bug(WebDriver driver) throws InterruptedException {
+		Thread.sleep(3000);	
 		String str = JOptionPane.showInputDialog("Enter your captcha");
 		WebElement element = driver.findElement(By.xpath("//input[@id='input_captcha']"));
 		element.sendKeys(str);
