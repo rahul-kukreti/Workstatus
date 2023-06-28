@@ -14,7 +14,7 @@ public class Schedules extends BaseClass {
 	public void add_schedules() throws InterruptedException, FilloException {
 		logger = rep.startTest("Schedules scenarios");
 		System.out.println("//For adding schedule");
-		member.login_old(driver); // remove when full fledge runnig
+		//member.login_old(driver); // remove when full fledge runnig
 		// member.interrupt(driver);// remove when full fledge runnig
 		schedule.add_schedule(driver);
         Thread.sleep(3000);

@@ -11,8 +11,8 @@ public class ToDo extends BaseClass {
 	public void add_todo() throws FilloException {
 		logger = rep.startTest("To-Do's scenarios");
 		System.out.println("//For Add To-dos");
-		 member.logout(driver); //open when full fledge running
-		member.login_old(driver);
+	//	member.logout(driver);
+				//member.login_old(driver);
 		member.interrupt(driver);
 		business.click_module(driver, "To-dos");
 		todo.click_addTodo_btn(driver);
@@ -44,9 +44,8 @@ public class ToDo extends BaseClass {
 
 	@Test(testName = "View To-Do", priority = 48, enabled = true)
 	public void view_todo() throws InterruptedException {
-
-		todo.todo_action(driver, "View ToDo");
 		System.out.println("//For View To-dos");
+		todo.todo_action(driver, "View ToDo");
 		todo.validate_viewtoDo(driver);
 		logger.log(LogStatus.INFO, "View Todo validated successfully");
 	}
@@ -72,10 +71,10 @@ public class ToDo extends BaseClass {
 	public void filter_project() throws FilloException, InterruptedException {
 		System.out.println("//For Filter project");
 		String filter_project = record.getField("Filter_Project");
-		todo.filter_project(driver, "Exit", filter_project);
-		todo.validate_filter_project(driver, "Exit360");
+		todo.filter_project(driver, "Berd", filter_project);
+		todo.validate_filter_project(driver, "Berd");
 		logger.log(LogStatus.INFO, " project Filter To-Do validated successfully");
-		driver.navigate().refresh();
+		//driver.navigate().refresh();
 	}
 
 	@Test(testName = "complete ToDo", priority = 52, enabled = true)

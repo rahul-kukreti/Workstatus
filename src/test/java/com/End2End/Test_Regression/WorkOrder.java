@@ -15,23 +15,23 @@ import com.utility.Utility;
 
 public class WorkOrder extends BaseClass {
 
-	@Test(testName = "Add WorkOrder", priority = 59, enabled = false)
+	@Test(testName = "Add WorkOrder", priority = 59, enabled = true)
 	public void add_Workorder() throws InterruptedException, FilloException {
 		logger = rep.startTest("WorkOrder scenarios");
 		System.out.println("//For adding workorder");
-		member.login_old(driver); // remove when full fledge runnig
+		//member.login_old(driver); // remove when full fledge runnig
 		// member.interrupt(driver);// remove when full fledge runnig
 		business.click_module(driver, "Work Orders");
 		work.select_client(driver);
 		Thread.sleep(2000);
 		String instruc = record.getField("Instruction");
 		work.add_work(driver, instruc);
-		String client_address = record.getField("Client_Address");
-		commFunc.put_field_data(driver, "address", client_address);
-		work.add_work_stepTwo(driver);
+		// String client_address = record.getField("Client_Address");
+		// commFunc.put_field_data(driver, "address", client_address);
+		// work.add_work_stepTwo(driver);
+		// Thread.sleep(2000);
 		String type = record.getField("Type");
 		commFunc.selectDropdown(driver, "type", type);
-
 		String baseon = record.getField("Based On");
 		commFunc.selectDropdown(driver, "basedOn", baseon);
 
@@ -51,7 +51,7 @@ public class WorkOrder extends BaseClass {
 
 	@Test(testName = "Geolocation", priority = 60, enabled = true)
 	public void get_Geolocation() throws InterruptedException {
-		System.out.println("//For geolocation");  
+		System.out.println("//For geolocation");
 		work.set_geo(driver);
 	}
 

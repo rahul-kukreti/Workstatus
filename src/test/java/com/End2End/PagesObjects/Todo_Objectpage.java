@@ -9,10 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.End2End.Test_Regression.BaseClass;
+import com.codoid.products.exception.FilloException;
 
 public class Todo_Objectpage extends BaseClass {
 
-	By add_todo = By.xpath("//button//child::span[text()=' Add to-dos ']");
+	By add_todo = By.xpath("//button//child::span[text()='Add to-do ']");
 	By todo_name = By.xpath("//input[@formcontrolname='name']");
 	By project_name = By.xpath("//mat-select[@formcontrolname='project_id']");
 	By member_name = By.xpath("//mat-select[@formcontrolname='member']");
@@ -80,7 +81,7 @@ public class Todo_Objectpage extends BaseClass {
 		commFunc.sendKeys(driver, description, descrip);
 	}
 
-	public void validate_todo(WebDriver driver) {
+	public void validate_todo(WebDriver driver) throws FilloException {
 		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Todo created successfully.']"));
 		if (driver.findElements(By.xpath("//h2[text()='Todo created successfully.']")).size() != 0) {
 			System.out.println("To-do created successfully!");
@@ -91,12 +92,17 @@ public class Todo_Objectpage extends BaseClass {
 				e.printStackTrace();
 			}
 			commFunc.Click(driver, btn_ok);
+			commFunc.Click(driver, selectproject);
+			String filter_project = record.getField("Filter_Project");
+			todo.filter_project(driver, "Berd", filter_project);
+			//commFunc.Click(driver,By.xpath("//button//span[text()=' Apply ']"));
 		} else {
 			System.err.println("To-do cannot able to created successfully!");
 		}
 	}
 
 	public void todo_action(WebDriver driver, String action) {
+		commFunc.Explicitywait(driver, action_icon);
 		commFunc.Click(driver, action_icon);
 		commFunc.Click(driver, By.xpath("//div[@role='menu']//child::button//span[contains(text(),'" + action + "')]"));
 
@@ -161,6 +167,7 @@ public class Todo_Objectpage extends BaseClass {
 		commFunc.Click(driver, searchproject);
 		commFunc.sendKeys(driver, searchproject, name);
 		commFunc.Click(driver, By.xpath("//mat-option//span[contains(text(),'" + filter_project + "')]"));
+		commFunc.Click(driver,By.xpath("//button//span[text()=' Apply ']"));
 	}
 	
 	public void validate_filter_project(WebDriver driver,String actual_name) throws InterruptedException {

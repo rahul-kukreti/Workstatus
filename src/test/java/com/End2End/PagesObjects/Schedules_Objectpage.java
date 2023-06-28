@@ -14,7 +14,7 @@ public class Schedules_Objectpage extends BaseClass {
 	By schedule_module = By.xpath("//a[@href='/dashboard/schedules']");
 	By add_btn = By.xpath("//button//span//mat-icon[contains(text(),'add')]");
 	By member = By.xpath("//mat-select[@formcontrolname='member']");
-	By save_btn = By.xpath("//button//span[contains(text(),'Save')]");
+	By save_btn = By.xpath("(//button//span[contains(text(),'Save')])");
 	By btn_ok = By.xpath("//button[contains(text(),'OK')]");
 	
 	
@@ -30,9 +30,9 @@ public class Schedules_Objectpage extends BaseClass {
 		for(int i =0; i<member_size; i++) {
 			
 			String member_names = memberlist.get(i).getText();
-			String actual_name = "Vijay";
+			String actual_name = "Rahul";
 			if(member_names.equalsIgnoreCase(actual_name)) {
-				commFunc.Click(driver, By.xpath("//div[@role='listbox']//mat-option//span[contains(text(),'Vijay')]"));
+				commFunc.Click(driver, By.xpath("//div[@role='listbox']//mat-option//span[contains(text(),'Rahul')]"));
 			}
 		}
 	}

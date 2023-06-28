@@ -11,7 +11,7 @@ public class Teams extends BaseClass {
 		logger = rep.startTest("New Team scenario");
 		System.out.println("//For Adding new Team");
 		//member.login_old(driver);// baad m hata dena esko
-		member.logout(driver);
+		//member.logout(driver);
 		login.login(driver);
 		business.click_module(driver, "Teams");
 		teams.click_addTeam(driver);

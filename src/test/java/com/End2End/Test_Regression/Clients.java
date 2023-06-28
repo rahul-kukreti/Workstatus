@@ -53,6 +53,7 @@ public class Clients extends BaseClass {
 		client.get_currentDate(driver);
 
 		client.save_client_btn(driver);
+		client.validate_client(driver);
 		logger.log(LogStatus.INFO, "Client added successfully!");
 
 	}

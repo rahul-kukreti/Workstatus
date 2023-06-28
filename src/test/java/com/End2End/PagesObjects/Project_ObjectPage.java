@@ -21,6 +21,7 @@ public class Project_ObjectPage extends BaseClass {
 	By yes_archieve = By.xpath("//button[contains(text(),'Yes')]");
 	By archieve_tab = By.xpath("//div[@role='tab']//child::div[text()='Archived']");
 	By active_tab = By.xpath("//div[@role='tab']//child::div[text()='Active']");
+	By btn_back = By.xpath("//button[contains(@class,'mat-focus-indicator new_modal_back_btn_theme')]");
 
 	public void click_project_btn(WebDriver driver) {
 		commFunc.Explicitywait(driver, add_project);
@@ -30,7 +31,9 @@ public class Project_ObjectPage extends BaseClass {
 	public void duplicate_details(WebDriver driver) throws InterruptedException {
 
 		commFunc.sendKeys(driver, project_name, (conf.get_project()));
-		commFunc.Click(driver, manager);
+		Thread.sleep(2000);
+		commFunc.jclick(driver, manager);
+		Thread.sleep(2000);
 		commFunc.Click(driver, By.xpath("//span[contains(text(),'Jack (Manager)')]"));
 		driver.findElement(manager).sendKeys((Keys.TAB));
 		Thread.sleep(2000);
@@ -47,7 +50,7 @@ public class Project_ObjectPage extends BaseClass {
 		if (driver.findElements(By.xpath("//h2[text()='Project name already exist.']")).size() != 0) {
 			System.out.println("Project already exit");
 			commFunc.Click(driver, btn_ok);
-
+			commFunc.Click(driver, btn_back);
 		}
 
 	}
@@ -76,6 +79,12 @@ public class Project_ObjectPage extends BaseClass {
 	}
 
 	public void Archieve_project(WebDriver driver) {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		commFunc.Click(driver, By.xpath("(//button//span//child::mat-icon[contains(text(),'more_vert ')])[1]"));
 		commFunc.Click(driver, By.xpath("//span[text()=' Archive project ']"));
 

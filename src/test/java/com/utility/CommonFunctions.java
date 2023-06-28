@@ -187,7 +187,13 @@ public class CommonFunctions {
 	 //For in case mat-select with formcontrolname
 	 
 	 public void selectDropdown(WebDriver driver, String name, String drop_value) {
-		 this.Click(driver, By.xpath("//mat-select[@formcontrolname='"+name+"']"));
+		 try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 this.jclick(driver, By.xpath("//mat-select[@formcontrolname='"+name+"']"));
 		 this.Click(driver, By.xpath("//div[@role='listbox']//mat-option//span[contains(text(),'"+drop_value+"')]"));
 	 }
 	

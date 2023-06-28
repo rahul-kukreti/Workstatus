@@ -105,7 +105,7 @@ public class Member_ObjectPage extends BaseClass {
 		commFunc.Explicitywait(driver, accept_btn);
 		commFunc.actionsClick(driver, accept_btn);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabs.get(5));
+		driver.switchTo().window(tabs.get(4));
 		try {
 			Thread.sleep(5000);
 			commFunc.sendKeyswithEnter(driver, name, (conf.get_nmemberName()));

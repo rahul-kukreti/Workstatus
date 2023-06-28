@@ -35,12 +35,12 @@ public class Teams_ObjectPage extends BaseClass {
 		commFunc.Click(driver, By.xpath("(//mat-pseudo-checkbox//parent::mat-option)[2]"));
 		Thread.sleep(2000);
 		driver.findElement(teammates).sendKeys((Keys.TAB));
-		commFunc.Click(driver, teamLeaad);
-		commFunc.Click(driver, By.xpath("(//mat-pseudo-checkbox//parent::mat-option)[2]"));
-		Thread.sleep(2000);
-		driver.findElement(teamLeaad).sendKeys((Keys.TAB));
+		//commFunc.Click(driver, teamLeaad);
+		//commFunc.Click(driver, By.xpath("(//mat-pseudo-checkbox//parent::mat-option)[2]"));
+		//Thread.sleep(2000);
+		//driver.findElement(teamLeaad).sendKeys((Keys.TAB));
 		commFunc.Click(driver, project);
-		commFunc.Click(driver, By.xpath("(//mat-pseudo-checkbox//parent::mat-option)[2]"));
+		commFunc.Click(driver, By.xpath("(//mat-pseudo-checkbox//parent::mat-option)[1]"));
 		Thread.sleep(2000);
 		driver.findElement(project).sendKeys((Keys.TAB));
 		Thread.sleep(2000);
@@ -48,8 +48,8 @@ public class Teams_ObjectPage extends BaseClass {
 	}
 
 	public void validate_team(WebDriver driver) {
-		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Team created successfully']"));
-		if (driver.findElements(By.xpath("//h2[text()='Team created successfully']")).size() != 0) {
+		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Team created successfully.']"));
+		if (driver.findElements(By.xpath("//h2[text()='Team created successfully.']")).size() != 0) {
 			System.out.println("Team created successfully.");
 			commFunc.Click(driver, btn_ok);
 		} else {

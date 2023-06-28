@@ -16,7 +16,7 @@ public class BusinessOwner_Objectpage extends BaseClass {
 
 	By business_option = By.xpath("//h4[text()=' Create a new organisation ']");
 	By continue_btn = By.xpath("//button//span[text()=' Continue ']");
-	By office_option = By.xpath("//h4[text()=' In an office ']");
+	By office_option = By.xpath("//div[contains(@class,'ng-tns')]//h4[text()='In an office']");
 	By org_name = By.xpath("//input[@formcontrolname='name']");
 	By select_size = By.xpath("(//mat-select[@role='combobox'])[1]");
 	By select_industry = By.xpath("(//mat-select[@role='combobox'])[2]");

@@ -71,7 +71,7 @@ public class Forgotpassword_Objectpage extends BaseClass {
 		commFunc.Explicitywait(driver, reset_btn);
 		commFunc.actionsClick(driver, reset_btn);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabs.get(4));
+		driver.switchTo().window(tabs.get(3));
 		commFunc.Explicitywait(driver, By.xpath("//input[@formcontrolname='password']"));
 		commFunc.sendKeyswithEnter(driver, password,(conf.getpassword()));
 		commFunc.sendKeyswithEnter(driver, passwordConfirm,(conf.getConfirm_passowrd()));

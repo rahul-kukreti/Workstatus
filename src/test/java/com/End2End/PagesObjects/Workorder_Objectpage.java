@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.End2End.Test_Regression.BaseClass;
+import com.codoid.products.exception.FilloException;
 import com.utility.Utility;
 
 public class Workorder_Objectpage extends BaseClass {
@@ -22,7 +23,7 @@ public class Workorder_Objectpage extends BaseClass {
 	By Geo = By.xpath("//input[@type='text']");
 	By vertical = By.xpath("ps__rail-y");
 	By job_site = By.xpath("body > app-component:nth-child(4) > mat-drawer-container:nth-child(2) > mat-drawer-content:nth-child(5) > vertical-layout-1:nth-child(1) > div:nth-child(1) > div:nth-child(1) > fuse-sidebar:nth-child(1) > navbar:nth-child(1) > navbar-vertical-style-1:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1) > span:nth-child(2)");
-	
+	By btn_back = By.xpath("//button[contains(@class,'mat-focus-indicator new_modal_back_btn_theme')]");
 
 	public void select_client(WebDriver driver) {
 		
@@ -70,10 +71,12 @@ public class Workorder_Objectpage extends BaseClass {
 		commFunc.Click(driver, By.xpath("//div[contains(@class,'d-flex justify-content-end ng-star-inserted')]//button//span[contains(text(),'Next')]"));
 	}
 	
-	public void add_work_stepTwo(WebDriver driver) {
-		driver.findElement(By.xpath("//input[@formcontrolname='address']")).sendKeys(Keys.TAB);
-		commFunc.Click(driver, By.xpath("//div[contains(@class,'d-flex justify-content-end ng-star-inserted')]//button//span[contains(text(),'Next')]"));
-		
+	public void add_work_stepTwo(WebDriver driver) throws InterruptedException, FilloException {
+		//driver.findElement(By.xpath("//input[@formcontrolname='address']")).sendKeys(Keys.TAB);
+		Thread.sleep(5000);
+		commFunc.Explicitywait(driver, By.xpath("(//button[@type='submit'])[2]"));
+		commFunc.Click(driver, By.xpath("(//button[@type='submit'])[2]"));
+		commFunc.Explicitywait(driver, By.xpath("(//button[@type='submit'])[2]"));
 	}
 	
 	public void add_notify(WebDriver driver) {
@@ -82,13 +85,14 @@ public class Workorder_Objectpage extends BaseClass {
 	}
 	
 	public void validate_work(WebDriver driver) {
-		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Unable to add workorder']"));
-		if(driver.findElements(By.xpath("//h2[text()='Unable to add workorder']")).size()!=0) {
+		commFunc.Explicitywait(driver, By.xpath("//button[text()='Not Now']"));
+		if(driver.findElements(By.xpath("//button[text()='Not Now']")).size()!=0) {
 			System.err.println("Work Order unable to add");
-			commFunc.Click(driver,btn_ok);
+			commFunc.Click(driver,By.xpath("//button[text()='Not Now']"));
 		}
 		else {
 			System.out.println("Work Order added successfully");
+			commFunc.Click(driver,btn_ok);
 		}
 	}
 	
