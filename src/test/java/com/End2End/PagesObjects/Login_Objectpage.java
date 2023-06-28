@@ -30,7 +30,7 @@ public class Login_Objectpage extends BaseClass {
 	}
 
 	public void login(WebDriver driver) {
-		commFunc.sendKeyswithEnter(driver, email, (conf.getemail_new()));
+		commFunc.sendKeys(driver, email, (conf.getemail_new()));
 		commFunc.sendKeyswithEnter(driver, password, (conf.getpassword()));
 	}
 

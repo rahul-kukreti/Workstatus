@@ -43,7 +43,7 @@ public class Member extends BaseClass {
 
 	@Test(testName = "For duplicate request", priority = 29, enabled = true)
 	public void duplicateRequest() {
-		logger = rep.startTest("New Member scenario");
+		//logger = rep.startTest("New Member scenario");
 		System.out.println("//For sending duplicate request");
 		business.click_module(driver, "Members");
 		member.click_addmember(driver);

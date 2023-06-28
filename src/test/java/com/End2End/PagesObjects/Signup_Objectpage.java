@@ -17,7 +17,7 @@ public class Signup_Objectpage extends BaseClass {
 	By password = By.xpath("//input[@formcontrolname='password']");
 	By passwordConfirm = By.xpath("//input[@formcontrolname='passwordConfirm']");
 	By checkbox = By.xpath("(//input[@type='checkbox'])[1]");
-	By sign_up_btn = By.xpath("//button//span[text()=' Sign up ']");
+	By sign_up_btn = By.xpath("//button[@id='ws-login-btn']");
 	By btn_ok = By.xpath("//button[text()='OK']");
 	By btn_success = By.xpath("//span[text()=' OK ']");
 

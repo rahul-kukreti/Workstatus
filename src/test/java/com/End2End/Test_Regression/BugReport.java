@@ -47,7 +47,7 @@ public class BugReport extends BaseClass {
 	public void blank_description() throws InterruptedException {
 		System.out.println("//For validatinig blank email..!!");
 		driver.navigate().refresh();
-		bg.blank_email(driver);
+		bg.bug_details(driver);
 		bg.severity(driver);
 		bg.reproducible(driver);
 		bg.platform(driver);

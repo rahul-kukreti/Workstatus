@@ -11,8 +11,8 @@ public class Clients extends BaseClass {
 	public void add_client() throws FilloException, InterruptedException {
 		logger = rep.startTest("Cleints scenarios");
 		System.out.println("//For Add Client");
-		member.login_old(driver); // remove when full fledge runnig
-		member.interrupt(driver);// remove when full fledge runnig
+		//member.login_old(driver); // remove when full fledge runnig
+		//member.interrupt(driver);// remove when full fledge runnig
 		business.click_module(driver, "Clients");
 		client.add_client_btn(driver);
 

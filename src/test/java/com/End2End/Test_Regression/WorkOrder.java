@@ -51,9 +51,7 @@ public class WorkOrder extends BaseClass {
 
 	@Test(testName = "Geolocation", priority = 60, enabled = true)
 	public void get_Geolocation() throws InterruptedException {
-		logger = rep.startTest("WorkOrder scenarios");
-		System.out.println("//For geolocation");
-		member.login_old(driver); 
+		System.out.println("//For geolocation");  
 		work.set_geo(driver);
 	}
 
