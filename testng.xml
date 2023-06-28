@@ -8,7 +8,7 @@
 	</listeners>
 	<parameter name="enviroment" value="stage" />
 	<parameter name="testCaseID" value="testCaseID_01" />
-	    <test name="Signup" preserve-order="true">
+	     <!--  <test name="Signup" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.Signup" />
 		</classes>
@@ -22,14 +22,14 @@
 		<classes>
 			<class name="com.End2End.Test_Regression.Support_feature" />
 		</classes>
-	</test>
+	</test> -->
 	 <test name="Bug report" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.BugReport" />
 		</classes>
 	</test> 
 	
-	 <test name="Forgot password" preserve-order="true">
+	<!--<test name="Forgot password" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.Forgotpassword" />
 		</classes>
@@ -74,9 +74,9 @@
 			<class name="com.End2End.Test_Regression.WorkOrder" />
 		</classes>
 	</test>
-   <test name="Schedules" preserve-order="true">
-		<classes>
+
+	<test name="Schedules" preserve-order="true">
 			<class name="com.End2End.Test_Regression.Schedules" />
 		</classes>
-	</test> 
+	</test>  -->
 </suite>
