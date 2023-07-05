@@ -87,11 +87,11 @@ public class Workorder_Objectpage extends BaseClass {
 	public void validate_work(WebDriver driver) {
 		commFunc.Explicitywait(driver, By.xpath("//button[text()='Not Now']"));
 		if(driver.findElements(By.xpath("//button[text()='Not Now']")).size()!=0) {
-			System.err.println("Work Order unable to add");
+			System.out.println("Work Order added successfully");
 			commFunc.Click(driver,By.xpath("//button[text()='Not Now']"));
 		}
 		else {
-			System.out.println("Work Order added successfully");
+			System.err.println("Work Order unable to add");
 			commFunc.Click(driver,btn_ok);
 		}
 	}

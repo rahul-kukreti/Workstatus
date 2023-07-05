@@ -39,9 +39,9 @@ public class BusinessOwner_Objectpage extends BaseClass {
 
 	public void validate_businessCheckbox(WebDriver driver) {
 		if (driver.findElements(By.xpath("//h1[text()=' Where does your team work? ']")).size() != 0) {
-			System.out.println("Business checkbox selected.!");
-		} else {
 			System.err.println("Business checkbox is not selected.!");
+		} else {
+			System.out.println("Business checkbox is selected.!");
 		}
 	}
 
@@ -52,11 +52,11 @@ public class BusinessOwner_Objectpage extends BaseClass {
 
 	public void validate_ofcCheckbox(WebDriver driver) {
 		if (driver.findElements(By.xpath("//h1[text()=' Create your Organization ']")).size() != 0) {
-			System.out.println("Office checkbox selected.!");
+			System.err.println("Office checkbox is not selected.!");
 		}
 
 		else {
-			System.err.println("Office checkbox is not selected.!");
+			System.out.println("Office checkbox is selected.!");
 		}
 	}
 
@@ -80,8 +80,8 @@ public class BusinessOwner_Objectpage extends BaseClass {
 	}
 
 	public void validate_organizationDetails(WebDriver driver) {
-		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Organisation created successfully.']"));
-		if (driver.findElements(By.xpath("//h2[text()='Organisation created successfully.']")).size() != 0) {
+		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Organization created successfully.']"));
+		if (driver.findElements(By.xpath("//h2[text()='Organization created successfully.']")).size() != 0) {
 
 			System.out.println("Organization created successfully!");
 			commFunc.Click(driver, btn_ok);
@@ -97,12 +97,13 @@ public class BusinessOwner_Objectpage extends BaseClass {
 		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Organization already exists with this name.']"));
 		if (driver.findElements(By.xpath("//h2[text()='Organization already exists with this name.']")).size() != 0) {
 
-			System.out.println("Organization name duplicated!");
+			System.err.println("Organization name duplicated!");
 			commFunc.Click(driver, btn_ok);
 		}
 
 		else {
-			System.err.println("Organization created successfully!");
+			System.out.println("Organization created successfully!");
+			commFunc.Click(driver, btn_ok);
 		}
 
 	}
@@ -142,17 +143,18 @@ public class BusinessOwner_Objectpage extends BaseClass {
 	
 	public void validate_checkboxes(WebDriver driver) {
 		if(driver.findElements(By.xpath("//h1[text()=' Create your first project ']")).size()!=0) {
-			System.out.println("All chckboxes clicked successfully!");
+			System.err.println("All chckboxes clicked successfully!");
+			//commFunc.Click(driver, continue_btn);
 		}
 		else {
-			System.err.println("Continue button is not clicked!");
+			System.out.println("Continue button is clicked!");
 		}
 	}
 	
 	public void projectName(WebDriver driver) {
-		commFunc.sendKeys(driver, project_name, (conf.get_project()));
-		commFunc.Click(driver, add_project);
-		commFunc.sendKeys(driver, project_name2, (conf.get_projectnew()));
+		//commFunc.sendKeys(driver, project_name, (conf.get_project()));
+		//commFunc.Click(driver, add_project);
+		commFunc.sendKeys(driver, project_name, (conf.get_projectnew()));
 		commFunc.Click(driver, continue_btn);
 	}
 	
@@ -168,22 +170,13 @@ public class BusinessOwner_Objectpage extends BaseClass {
 	
 	public void validate_project(WebDriver driver) throws InterruptedException {
 		Thread.sleep(5000);
-		  if(driver.findElements(By.xpath("//mat-row//mat-cell//p[text()=' Crm ']")).size()!=0)
+		  if(driver.findElements(By.xpath("//mat-row//mat-cell//p[text()=' cvBuilderb3 ']")).size()!=0)
 		  {
-		  System.out.println("project1 name found"); 
-		  
+		  System.out.println("project name found"); 
 		  }
 		  else
 		  {
-		  System.err.println("project1 name not found"); 
-		  }
-		  if(driver.findElements(By.xpath("//mat-row//mat-cell//p[text()=' cvBuilder ']")).size()!=0)
-		  {
-		  System.out.println("project2 name found"); 
-		  }
-		  else
-		  {
-		  System.err.println("project2 name not found"); 
+		  System.err.println("project name not found"); 
 		  }
 		  }
 		 

@@ -41,7 +41,7 @@ public class Member_ObjectPage extends BaseClass {
 	By logout = By.xpath("(//div[@aria-haspopup='true'])[2]");
 	By logout_confrm = By.xpath("//button[text()='Yes']");
 	By email = By.xpath("//input[@formcontrolname='email']");
-	By invited = By.xpath("//mat-tab-header[@class='mat-tab-header']//parent::div[text()='Invited']");
+	By invited = By.xpath("//mat-tab-header[@class='mat-tab-header']//parent::div//label[contains(text(),'Invited')]");
 	By resend = By.xpath("//span[contains(text(),'Resend invite')]");
 	By edit_invite = By.xpath("//span[contains(text(),'Edit invite')]");
 	By cancel_invite = By.xpath("//span[contains(text(),'Cancel invite')]");
@@ -63,7 +63,7 @@ public class Member_ObjectPage extends BaseClass {
 			e.printStackTrace();
 		}
 		commFunc.Click(driver, By.xpath("//label[contains(@class,'mat-form-field-label')]//mat-label[text()=' Select projects for this member  ']"));
-		commFunc.Click(driver, By.xpath("//mat-pseudo-checkbox//following-sibling::span[text()=' Crm ']"));
+		commFunc.Click(driver, By.xpath("//mat-pseudo-checkbox//following-sibling::span[text()=' cvBuilderb3 ']"));
 
 	}
 
@@ -105,15 +105,33 @@ public class Member_ObjectPage extends BaseClass {
 		commFunc.Explicitywait(driver, accept_btn);
 		commFunc.actionsClick(driver, accept_btn);
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		
+		//numbering of an page, 4ki jagah 1 kr deya
 		driver.switchTo().window(tabs.get(4));
 		try {
 			Thread.sleep(5000);
-			commFunc.sendKeyswithEnter(driver, name, (conf.get_nmemberName()));
-			commFunc.sendKeyswithEnter(driver, phone, (conf.getphone()));
-			commFunc.sendKeyswithEnter(driver, password, (conf.getpassword()));
-			commFunc.sendKeyswithEnter(driver, passwordConfirm, (conf.getConfirm_passowrd()));
-			sign.click_checkbox(driver);
+			
+			 commFunc.sendKeyswithEnter(driver, name, (conf.get_nmemberName()));
+			  commFunc.sendKeyswithEnter(driver, phone, (conf.getphone()));
+			 commFunc.sendKeyswithEnter(driver, password, (conf.getpassword()));
+			  commFunc.sendKeyswithEnter(driver, passwordConfirm,(conf.getConfirm_passowrd()));
+			  sign.click_checkbox(driver);
+			  commFunc.Click(driver, account_btn);
 			sign.validatae_newUser(driver);
+			
+			
+			//commFunc.Explicitywait(driver, By.xpath("//div[@id='mail-confirm-form']//child::div[contains(text(),'Success')]"));
+			if(driver.findElements(By.xpath("//div[@id='mail-confirm-form']//child::div[contains(text(),'Success')]")).size()!=0) {
+				System.out.println("Member added successfully!");
+				//commFunc.Click(driver, By.xpath("//div[@id='mail-confirm-form']//child::a[@href='/auth/login']"));
+				//commFunc.sendKeys(driver, email,(conf.get_newMember()));
+				//commFunc.sendKeyswithEnter(driver, password, (conf.getpassword()));*/
+				
+			}
+			/*else {
+				commFunc.Click(driver, By.xpath("(//div[@id='mail-confirm-form']//child::a[@href='/auth/login'])[2)"));
+				members.filter_online();
+			}*/
 		} catch (Exception e) {
 
 		}
@@ -168,6 +186,7 @@ public class Member_ObjectPage extends BaseClass {
 	}
 
 	public void validate_tracking(WebDriver driver) {
+		commFunc.Click(driver, By.xpath("//button[contains(text(),'Yes')]"));
 		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Status changed successfully.']"));
 		if (driver.findElements(By.xpath("//h2[text()='Status changed successfully.']")).size() != 0) {
 			System.out.println("Tracking work successfully!");
@@ -308,10 +327,11 @@ public class Member_ObjectPage extends BaseClass {
 	}
 
 	public void cancel_invite(WebDriver driver) {
+	
 		commFunc.Click(driver, action_icon);
+		
 		commFunc.Click(driver, cancel_invite);
-		commFunc.Click(driver, cancel_confirm);
-		commFunc.Click(driver, logout_confrm);
+		commFunc.Click(driver, By.xpath("//button[contains(text(),'Yes')]"));
 	}
 
 	public void validate_cancelInvite(WebDriver driver) {
@@ -321,6 +341,7 @@ public class Member_ObjectPage extends BaseClass {
 				.size() != 0) {
 			System.out.println("Member request cancelled successfully!");
 			commFunc.Click(driver, btn_ok);
+			member.logout(driver);
 		} else {
 			System.err.println("Member request does not cancelled successfully!");
 		}

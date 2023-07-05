@@ -11,8 +11,9 @@ public class BusinessOwner extends BaseClass {
 	     logger = rep.startTest("Business option scenarios");
 		System.out.println("//For selecting business option");
 		business.click_businessOption(driver);
-		business.click_continue_btn(driver);
 		business.validate_businessCheckbox(driver);
+		business.click_continue_btn(driver);
+		//business.validate_businessCheckbox(driver);
 		logger.log(LogStatus.INFO, "Business checkbox selected successfully.!");
 	}
 
@@ -20,8 +21,9 @@ public class BusinessOwner extends BaseClass {
 	public void click_ofcOptin() {
 		System.out.println("//For selecting office option");
 		business.click_OfcOption(driver);
-		business.click_continue_btn(driver);
 		business.validate_ofcCheckbox(driver);
+		business.click_continue_btn(driver);
+		//business.validate_ofcCheckbox(driver);
 		logger.log(LogStatus.INFO, "Office checkbox selected successfully.!");
 
 	}

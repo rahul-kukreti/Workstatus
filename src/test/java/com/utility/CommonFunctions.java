@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
+import com.End2End.Test_Regression.BaseClass;
+import com.codoid.products.exception.FilloException;
 import com.relevantcodes.extentreports.LogStatus;
 
 import java.text.DateFormat;
@@ -15,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
 
-public class CommonFunctions {
+public class CommonFunctions extends BaseClass {
 	// testing
 	WebDriver driver;
 
@@ -326,6 +328,21 @@ public class CommonFunctions {
 		System.out.println("*********Date Formate Changed Successfully*******" + "  " + Result);
 		return Result;
 
+	}
+	
+	//For add schedule
+	
+	public void add_schedule(WebDriver driver) throws InterruptedException, FilloException {
+		schedule.add_schedule(driver);
+		Thread.sleep(3000);
+		String title = record.getField("Title");
+		commFunc.put_field_data(driver, "title", title);
+		String description = record.getField("Description");
+		commFunc.put_field_data(driver, "description", description);
+
+		String reset = record.getField("Reset");
+		commFunc.selectDropdown(driver, "repeat", reset);
+		schedule.click_saveBtn(driver);
 	}
 
 	// ------------Get System Time and Date-----------

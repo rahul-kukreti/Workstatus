@@ -10,7 +10,7 @@ public class Project extends BaseClass {
 	public void click_businessoption() throws InterruptedException {
 		logger = rep.startTest("Project scenarios");
 		System.out.println("//For Adding new project");
-		login.login(driver);//remove when full fledge
+		//login.login(driver);//remove when full fledge
 		business.click_module(driver, "Projects");
 		project.click_project_btn(driver);
 		project.duplicate_details(driver);

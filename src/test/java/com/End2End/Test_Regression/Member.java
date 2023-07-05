@@ -10,6 +10,7 @@ public class Member extends BaseClass {
 	public void new_member() {
 		logger = rep.startTest("New Member scenario");
 		System.out.println("//For Adding new member");
+		//login.login(driver);
 		business.click_module(driver, "Members");
 		member.click_addmember(driver);
 		member.member_details(driver);
@@ -22,8 +23,7 @@ public class Member extends BaseClass {
 	public void setup_window() throws InterruptedException {
 		System.out.println("//For setup new member.");
 		member.getWindow(driver);
-		member.click_save_account(driver);
-		sign.validatae_newUser(driver);
+		//member.logout(driver);
 		login.login(driver);
 		business.click_module(driver, "Members");
 		member.validate_newMember(driver, "Rahul");
@@ -43,7 +43,6 @@ public class Member extends BaseClass {
 
 	@Test(testName = "For duplicate request", priority = 29, enabled = true)
 	public void duplicateRequest() {
-		//logger = rep.startTest("New Member scenario");
 		System.out.println("//For sending duplicate request");
 		business.click_module(driver, "Members");
 		member.click_addmember(driver);
@@ -93,10 +92,8 @@ public class Member extends BaseClass {
 
 	@Test(testName = "For Resend invitation link", priority = 35, enabled = true)
 	public void Resend_invitation() {
-		//logger = rep.startTest("New Member scenario");
+
 		System.out.println("//For Resend invitation");
-		//member.login_old(driver);
-		//business.click_module(driver, "Members");
 		member.click_invitedTab(driver);
 		member.resend_link(driver);
 		member.validate_resend(driver);
@@ -111,17 +108,14 @@ public class Member extends BaseClass {
 		member.click_save(driver);
 		member.validate_editInvite(driver);
 		logger.log(LogStatus.INFO, "Member edit invitation updated successfully!");
- 	}
-	
+	}
 
 	@Test(testName = "For cancel request", priority = 37, enabled = true)
 	public void Cancel_request() {
-		//logger = rep.startTest("New Member scenario");
 		System.out.println("//For cancel request");
-		//member.login_old(driver);
 		member.cancel_invite(driver);
 		member.validate_cancelInvite(driver);
 		logger.log(LogStatus.INFO, "Member request cancelled successfully!");
- 	}
+	}
 
 }

@@ -16,6 +16,7 @@ import com.End2End.PagesObjects.Schedules_Objectpage;
 import com.End2End.PagesObjects.Signup_Objectpage;
 import com.End2End.PagesObjects.Supportfeature_Objectpage;
 import com.End2End.PagesObjects.Teams_ObjectPage;
+import com.End2End.PagesObjects.TimeOff_Objectpage;
 import com.End2End.PagesObjects.Todo_Objectpage;
 import com.End2End.PagesObjects.Workorder_Objectpage;
 import com.codoid.products.exception.FilloException;
@@ -50,6 +51,7 @@ public class BaseClass {
 	public static Forgotpassword_Objectpage fp = new Forgotpassword_Objectpage();
 	public static BusinessOwner_Objectpage business = new BusinessOwner_Objectpage();
 	public static Member_ObjectPage member = new Member_ObjectPage();
+	public static Member members = new Member();
 	public static Teams_ObjectPage teams = new Teams_ObjectPage();
 	public static Project_ObjectPage project = new Project_ObjectPage();
 	public static Todo_Objectpage todo = new Todo_Objectpage();
@@ -57,6 +59,7 @@ public class BaseClass {
 	public static Clients_Objectpage client =  new Clients_Objectpage();
 	public static Workorder_Objectpage work =  new Workorder_Objectpage();
 	public static Schedules_Objectpage schedule = new Schedules_Objectpage();
+	public static TimeOff_Objectpage time = new TimeOff_Objectpage();
 
 
 	@Parameters({ "enviroment" })

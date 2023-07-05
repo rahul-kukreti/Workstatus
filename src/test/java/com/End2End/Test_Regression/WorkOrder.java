@@ -10,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import com.codoid.products.exception.FilloException;
+import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 import com.utility.Utility;
 
@@ -53,6 +54,9 @@ public class WorkOrder extends BaseClass {
 	public void get_Geolocation() throws InterruptedException {
 		System.out.println("//For geolocation");
 		work.set_geo(driver);
+		String screenshotPath = Utility.captureScreenShot(driver, "location");
+		
+		logger.addScreenCapture(screenshotPath);
 	}
 
 }

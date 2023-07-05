@@ -32,7 +32,7 @@ public class Teams_ObjectPage extends BaseClass {
 	public void team_details(WebDriver driver) throws InterruptedException {
 		commFunc.sendKeyswithEnter(driver, name, (conf.get_Teamname()));
 		commFunc.Click(driver, teammates);
-		commFunc.Click(driver, By.xpath("(//mat-pseudo-checkbox//parent::mat-option)[2]"));
+		commFunc.Click(driver, By.xpath("//mat-option[@role='option']//child::span[contains(text(),'Jack')]"));
 		Thread.sleep(2000);
 		driver.findElement(teammates).sendKeys((Keys.TAB));
 		//commFunc.Click(driver, teamLeaad);
@@ -40,7 +40,7 @@ public class Teams_ObjectPage extends BaseClass {
 		//Thread.sleep(2000);
 		//driver.findElement(teamLeaad).sendKeys((Keys.TAB));
 		commFunc.Click(driver, project);
-		commFunc.Click(driver, By.xpath("(//mat-pseudo-checkbox//parent::mat-option)[1]"));
+		commFunc.Click(driver, By.xpath("//mat-option[@role='option']//child::span[contains(text(),'cvBuilderb3')]"));
 		Thread.sleep(2000);
 		driver.findElement(project).sendKeys((Keys.TAB));
 		Thread.sleep(2000);
@@ -60,17 +60,22 @@ public class Teams_ObjectPage extends BaseClass {
 	public void filter(WebDriver driver) {
 		commFunc.Click(driver, filter);
 		commFunc.Click(driver, teammates);
-		commFunc.Click(driver, By.xpath("//mat-option//span[text()=' cvBuilder ']"));
+		commFunc.Click(driver, By.xpath("//mat-option//span[text()=' DefaultProject ']"));
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		commFunc.Click(driver, filterbtn);
-
+		
 	}
 
 	public void validate_filter(WebDriver driver) {
 		commFunc.Explicitywait(driver, By.xpath("//span[text()=' There are no teams! ']"));
 		if (driver.findElements(By.xpath("//span[text()=' There are no teams! ']")).size() != 0) {
 			System.out.println("Filters are validated successfully.");
-			commFunc.Click(driver, filter);
-			commFunc.Click(driver, filterbtnc);
+			driver.navigate().refresh();
 
 		} else {
 			System.err.println("Filters are not validated successfully.");
