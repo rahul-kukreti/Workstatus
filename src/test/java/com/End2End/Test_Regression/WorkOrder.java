@@ -1,16 +1,8 @@
 package com.End2End.Test_Regression;
 
-import java.util.HashMap;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import com.codoid.products.exception.FilloException;
-import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 import com.utility.Utility;
 
@@ -20,8 +12,6 @@ public class WorkOrder extends BaseClass {
 	public void add_Workorder() throws InterruptedException, FilloException {
 		logger = rep.startTest("WorkOrder scenarios");
 		System.out.println("//For adding workorder");
-		//member.login_old(driver); // remove when full fledge runnig
-		// member.interrupt(driver);// remove when full fledge runnig
 		business.click_module(driver, "Work Orders");
 		work.select_client(driver);
 		Thread.sleep(2000);

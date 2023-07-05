@@ -1,9 +1,5 @@
 package com.End2End.Test_Regression;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.codoid.products.exception.FilloException;
@@ -15,7 +11,6 @@ public class Schedules extends BaseClass {
 	public void add_schedules() throws InterruptedException, FilloException {
 		logger = rep.startTest("Schedules scenarios");
 		System.out.println("//For adding schedule");
-		login.login(driver);
 		commFunc.add_schedule(driver);
 		schedule.verify_schedule(driver);
 		logger.log(LogStatus.INFO, "Schedule added successfully!");
