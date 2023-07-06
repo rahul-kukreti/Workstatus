@@ -8,7 +8,7 @@
 	</listeners>
 	<parameter name="enviroment" value="stage" />
 	<parameter name="testCaseID" value="testCaseID_01" />
-	    <!--  <test name="Signup" preserve-order="true">
+	     <!--  <test name="Signup" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.Signup" />
 		</classes>
@@ -23,7 +23,7 @@
 			<class name="com.End2End.Test_Regression.Support_feature" />
 		</classes>
 	</test>
-	 <test name="Bug report" preserve-order="true">
+	<test name="Bug report" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.BugReport" />
 		</classes>
@@ -38,18 +38,18 @@
 		<classes>
 			<class name="com.End2End.Test_Regression.BusinessOwner" />
 		</classes>
-	</test> 
+	</test>
 	<test name="Member" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.Member" />
 		</classes>
-	</test>
+	</test>   
 
-	<test name="Teams" preserve-order="true">
+	  <test name="Teams" preserve-order="true">
 		<classes>
 			<class name="com.End2End.Test_Regression.Teams" />
 		</classes>
-	</test>  -->
+	</test>
 	
 	  <test name="Project" preserve-order="true">
 		<classes>
@@ -78,6 +78,12 @@
 	<test name="Schedules" preserve-order="true">
 	<classes>
 			<class name="com.End2End.Test_Regression.Schedules" />
+		</classes>
+	</test> -->
+	
+	<test name="TimeOff" preserve-order="true">
+	<classes>
+			<class name="com.End2End.Test_Regression.TimeOff" />
 		</classes>
 	</test>
 </suite>

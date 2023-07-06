@@ -120,8 +120,7 @@ public class Todo_Objectpage extends BaseClass {
 
 		else {
 			System.out.println("hello ji");
-			commFunc.Click(driver,
-					By.xpath("//ancestor::div[text()='Back']//parent::div//child::span[@class='mat-button-wrapper']"));
+			commFunc.Click(driver,By.xpath("//ancestor::div[text()='Back']//parent::div//child::span[@class='mat-button-wrapper']"));
 
 		}
 	}
