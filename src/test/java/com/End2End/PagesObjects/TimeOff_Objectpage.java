@@ -18,6 +18,7 @@ public class TimeOff_Objectpage extends BaseClass {
 	By checkbox = By.xpath("//mat-checkbox[@formcontrolname='allDay']");
 	By edit_request = By.xpath("//button//span[contains(text(),'Edit Request ')]");
 	By approve_tab = By.xpath("//div[@role='tab']//child::label[contains(text(),'Approved')]");
+	By deny_tab = By.xpath("//div[@role='tab']//child::label[contains(text(),'Denied')]");
 
 	public void click_timeoff_module(WebDriver driver) {
 		commFunc.scrollIntoElement(driver, timeOff_module);
@@ -121,6 +122,11 @@ public class TimeOff_Objectpage extends BaseClass {
 	
 	public void edit_timeoff(WebDriver driver) {
 		commFunc.Click(driver, edit_request);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		commFunc.Click(driver, checkbox);
 	}
 	
@@ -132,11 +138,29 @@ public class TimeOff_Objectpage extends BaseClass {
 		}
 	}
 	
-	public void validate_Approve_timeOff(WebDriver driver) {
+	public void validate_Approve_timeOff(WebDriver driver) throws InterruptedException {
+		Thread.sleep(2000);
+		commFunc.Click(driver, By.xpath("//div//button[text()='Submit']"));
 		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Status of timeoff request successfully updated.']"));
 		if (driver.findElements(By.xpath("//h2[text()='Status of timeoff request successfully updated.']")).size() != 0) {
 			System.out.println("TimeOff status approve successfully!");
 			commFunc.Click(driver, btn_ok);
 		}
+	}
+	
+	public void validate_Deny_timeOff(WebDriver driver) throws InterruptedException {
+		Thread.sleep(2000);
+		commFunc.Click(driver, By.xpath("//div//button[text()='Submit']"));
+		commFunc.Explicitywait(driver, By.xpath("//h2[text()='Status of timeoff request successfully updated.']"));
+		if (driver.findElements(By.xpath("//h2[text()='Status of timeoff request successfully updated.']")).size() != 0) {
+			System.out.println("TimeOff status deny successfully!");
+			commFunc.Click(driver, btn_ok);
+			commFunc.Click(driver, deny_tab);
+		}
+	}
+	
+	public void deny_time(WebDriver driver) {
+		commFunc.Explicitywait(driver, approve_tab);
+		commFunc.Click(driver, approve_tab);
 	}
 }
